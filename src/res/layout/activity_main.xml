@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:background="#33b5e5"
+        android:contentDescription="@string/tab_troop_training"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
         android:textColor="#fff" />
