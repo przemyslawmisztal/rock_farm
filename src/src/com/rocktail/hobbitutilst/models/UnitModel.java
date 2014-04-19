@@ -9,13 +9,23 @@ package com.rocktail.hobbitutilst.models;
  */
 public class UnitModel {
 	private String _name;
-	private long _costFood;
-	private long _costWood;
-	private long _costStone;
-	private long _costOre;
+	private long _costInFood;
+	private long _costInWood;
+	private long _costInStone;
+	private long _costInOre;
 	private int _might;
 	private int _tier;
 	
+	/**
+	 * Using constructor is the only way to assign values to instance of this class
+	 * @param name
+	 * @param costFood
+	 * @param costWood
+	 * @param costStone
+	 * @param costOre
+	 * @param might
+	 * @param tier
+	 */
 	public UnitModel(String name,
 					 long costFood,
 					 long costWood,
@@ -24,28 +34,28 @@ public class UnitModel {
 					 int might,
 					 int tier) {
 		this._name = name;
-		this.set_might(might);
-		this.set_tier(tier);
-		this._costFood = costFood;
-		this.set_costOre(costOre);
-		this.set_costStone(costStone);
-		this.setCostWood(costWood);
+		this._might = might;
+		this._tier = tier;
+		this._costInFood = costFood;
+		this._costInOre = costOre;
+		this._costInStone = costStone;
+		this._costInWood = costWood;
 	}
 	
 	public String getName() {
 		return _name;
 	}
 
-	public long getCostWood() {
-		return _costWood;
+	public long getCostInWood() {
+		return _costInWood;
 	}
 
-	public long getCostStone() {
-		return _costStone;
+	public long getCostInStone() {
+		return _costInStone;
 	}
 
-	public long getCostOre() {
-		return _costOre;
+	public long getCostInOre() {
+		return _costInOre;
 	}
 
 	public int getMight() {
@@ -54,5 +64,9 @@ public class UnitModel {
 
 	public int getTier() {
 		return _tier;
+	}
+
+	public long getCostInFood() {
+		return _costInFood;
 	}
 }
