@@ -8,6 +8,6 @@ public class PlayerResourcesTests extends AndroidTestCase {
 	private long _ore;
 	
 	private void testCanCreatePlayerResources() {
-		assertTrue(false);
+		//todo
 	}
 }
