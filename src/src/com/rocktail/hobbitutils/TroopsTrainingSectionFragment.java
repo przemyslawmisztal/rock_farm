@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.hobbitutils.R;
-
 public class TroopsTrainingSectionFragment extends Fragment {
 	/**
      * The fragment argument representing the section number for this

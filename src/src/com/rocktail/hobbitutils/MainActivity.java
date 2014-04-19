@@ -10,8 +10,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 
-import com.example.hobbitutils.R;
-
 public class MainActivity extends FragmentActivity {
 
     /**
