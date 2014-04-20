@@ -1,7 +1,7 @@
+package com.rocktail.hobbitutils.test;
+
 import android.test.AndroidTestCase;
-
 import com.rocktail.hobbitutilst.models.PlayerResources;
-
 
 public class PlayerResourcesTests extends AndroidTestCase {
 	private long _food = 150;

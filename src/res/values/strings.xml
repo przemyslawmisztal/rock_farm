@@ -4,5 +4,13 @@
     <string name="app_name">Hobbit Utils</string>
     <string name="action_settings">Settings</string>
     <string name="tab_troop_training">T1 training</string>
+    <string name="t1_foot_elves">Elven Militia</string>
+    <string name="t1_ranged_elves">Elven Archers</string>
+    <string name="t1_mounted_elves">Mounted Elves</string>
+    <string name="training_accept_button">Calculate</string>
+    <string name="resource_food">Food</string>
+    <string name="resource_wood">Wood</string>
+    <string name="resource_stone">Stone</string>
+    <string name="resource_ore">Ore</string>
 
 </resources>
