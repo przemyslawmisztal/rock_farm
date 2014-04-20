@@ -6,13 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView.FindListener;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutilst.models.OnChangeListener;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
-public class TroopsTrainingSectionFragment extends Fragment implements OnChangeListener<PlayerResources> {
+public class TroopsTrainingSectionFragment extends Fragment 
+	implements OnChangeListener<PlayerResources>,
+	View.OnClickListener {
 	/**
      * The fragment argument representing the section number for this
      * fragment.
@@ -40,6 +43,9 @@ public class TroopsTrainingSectionFragment extends Fragment implements OnChangeL
         this._stoneAmount = (EditText)rootView.findViewById(R.id.stoneAmountEditText);
         this._oreAmount = (EditText)rootView.findViewById(R.id.oreAmountEditText);
         
+        final Button button = (Button) rootView.findViewById(R.id.acceptButton);
+        button.setOnClickListener(this);
+        
         //we init player resources with no values so when fragment is shown there are zeros in input fields 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         
@@ -54,10 +60,19 @@ public class TroopsTrainingSectionFragment extends Fragment implements OnChangeL
 		updateView();
 	}
 	
+	private void readUserInput() {
+		
+	}
+	
 	private void updateView() {
 		this._foodAmount.setText(String.valueOf(this._playerResources.getFood()));
 		this._woodAmount.setText(String.valueOf(this._playerResources.getWood()));
 		this._stoneAmount.setText(String.valueOf(this._playerResources.getStone()));
 		this._oreAmount.setText(String.valueOf(this._playerResources.getOre()));
+	}
+
+	@Override
+	public void onClick(View v) {
+		readUserInput();
 	}
 }
