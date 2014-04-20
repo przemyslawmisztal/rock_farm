@@ -5,7 +5,7 @@ package com.rocktail.hobbitutilst.models;
  * @author rocktail
  *
  */
-public class PlayerResources {
+public class PlayerResources extends ModelObservable<PlayerResources> {
 	private long _food;
 	private long _wood;
 	private long _stone;

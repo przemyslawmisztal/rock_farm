@@ -1,6 +1,13 @@
-package com.rocktail.hobbitutils;
+package com.rocktail.hobbitutils.activities;
 
 import java.util.Locale;
+
+import com.rocktail.hobbitutils.R;
+import com.rocktail.hobbitutils.TroopsTrainingSectionFragment;
+import com.rocktail.hobbitutils.R.id;
+import com.rocktail.hobbitutils.R.layout;
+import com.rocktail.hobbitutils.R.menu;
+import com.rocktail.hobbitutils.R.string;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
