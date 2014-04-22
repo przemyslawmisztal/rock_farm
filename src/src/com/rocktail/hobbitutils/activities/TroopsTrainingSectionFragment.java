@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.rocktail.hobbitutils.R;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
 import com.rocktail.hobbitutilst.models.OnChangeListener;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
@@ -27,6 +28,7 @@ public class TroopsTrainingSectionFragment extends Fragment
     private EditText _woodAmount;
     private EditText _stoneAmount;
     private EditText _oreAmount;
+    private TroopsTrainingController _controller;
     
     public TroopsTrainingSectionFragment() {
     }
@@ -35,22 +37,25 @@ public class TroopsTrainingSectionFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_troop_training, container, false);
-        
+              
         //lets find edit text that contain user input
         this._foodAmount = (EditText)rootView.findViewById(R.id.foodAmountEditText);
         this._woodAmount = (EditText)rootView.findViewById(R.id.woodAmountEditText);
         this._stoneAmount = (EditText)rootView.findViewById(R.id.stoneAmountEditText);
         this._oreAmount = (EditText)rootView.findViewById(R.id.oreAmountEditText);
         
+        //we need to find accept button and register listener to be able to catch user interaction
         final Button button = (Button) rootView.findViewById(R.id.acceptButton);
         button.setOnClickListener(this);
         
-        //we init player resources with no values so when fragment is shown there are zeros in input fields 
+        //we initialize player resources with no values so when fragment is shown there are zeros in input fields 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         
         //adding this fragment as listener so we know when model changes
         this._playerResources.addListener(this);
         
+        //we init controller and pass resources object
+        this._controller = new TroopsTrainingController(this._playerResources);
         return rootView;
     }
 
@@ -60,7 +65,12 @@ public class TroopsTrainingSectionFragment extends Fragment
 	}
 	
 	private void readUserInput() {
+		long foodAmount = Long.parseLong(this._foodAmount.getText().toString());
+		long woodAmount = Long.parseLong(this._woodAmount.getText().toString());
+		long stoneAmount = Long.parseLong(this._stoneAmount.getText().toString());
+		long oreAmount = Long.parseLong(this._oreAmount.getText().toString());
 		
+		//this._controller.handleMessage(what, data);
 	}
 	
 	private void updateView() {
