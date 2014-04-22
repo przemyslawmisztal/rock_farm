@@ -57,16 +57,6 @@ public class Simplex {
         return -1;  // optimal
     }
 
-   // index of a non-basic column with most positive cost
-    private int dantzig() {
-        int q = 0;
-        for (int j = 1; j < M + N; j++)
-            if (a[M][j] > a[M][q]) q = j;
-
-        if (a[M][q] <= 0) return -1;  // optimal
-        else return q;
-    }
-
     // find row p using min ratio rule (-1 if no such row)
     private int minRatioRule(int q) {
         int p = -1;
