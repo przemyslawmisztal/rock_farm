@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>HobbitUtilsTest</name>
+	<name>HobbitUtilsTests</name>
 	<comment></comment>
 	<projects>
 		<project>HobbitUtils</project>
