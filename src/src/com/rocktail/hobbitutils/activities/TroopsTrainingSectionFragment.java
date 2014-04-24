@@ -1,5 +1,8 @@
 package com.rocktail.hobbitutils.activities;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,11 +13,10 @@ import android.widget.EditText;
 
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
-import com.rocktail.hobbitutilst.models.OnChangeListener;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
 public class TroopsTrainingSectionFragment extends Fragment 
-	implements OnChangeListener<PlayerResources>,
+	implements Observer,
 	View.OnClickListener {
 	/**
      * The fragment argument representing the section number for this
@@ -51,18 +53,10 @@ public class TroopsTrainingSectionFragment extends Fragment
         //we initialize player resources with no values so when fragment is shown there are zeros in input fields 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         
-        //adding this fragment as listener so we know when model changes
-        this._playerResources.addListener(this);
-        
         //we init controller and pass resources object
         this._controller = new TroopsTrainingController(this._playerResources);
         return rootView;
     }
-
-	@Override
-	public void onChange(PlayerResources model) {
-		updateView();
-	}
 	
 	private void readUserInput() {
 		long foodAmount = Long.parseLong(this._foodAmount.getText().toString());
@@ -83,5 +77,11 @@ public class TroopsTrainingSectionFragment extends Fragment
 	@Override
 	public void onClick(View v) {
 		readUserInput();
+	}
+
+	@Override
+	public void update(Observable observable, Object data) {
+		updateView();
+		
 	}
 }

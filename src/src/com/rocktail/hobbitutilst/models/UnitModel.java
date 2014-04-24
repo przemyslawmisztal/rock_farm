@@ -3,11 +3,13 @@
  */
 package com.rocktail.hobbitutilst.models;
 
+import java.util.Observable;
+
 /**
  * @author rocktail
  * POJO class for storing properties of Hobbit unit 
  */
-public class UnitModel {
+public class UnitModel extends Observable {
 	private String _name;
 	private long _costInFood;
 	private long _costInWood;

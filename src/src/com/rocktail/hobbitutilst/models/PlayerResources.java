@@ -1,18 +1,20 @@
 package com.rocktail.hobbitutilst.models;
 
+import java.util.Observable;
+
 /**
  * Contains info about resources available to player
  * @author rocktail
  *
  */
-public class PlayerResources extends ModelObservable<PlayerResources> {
+public class PlayerResources extends Observable {
 	private long _food;
 	private long _wood;
 	private long _stone;
 	private long _ore;
 	
 	/**
-	 * Constructor is the only way to assign values to resources
+	 * Default constructor initializes properties with provided values
 	 *  
 	 * @param food
 	 * @param wood
@@ -37,12 +39,20 @@ public class PlayerResources extends ModelObservable<PlayerResources> {
 		return _food;
 	}
 	
+	public void setFood(long food) {
+		this._food = food;
+	}
+	
 	/**
 	 * Returns amount of wood player has available
 	 * @return
 	 */
 	public long getWood() {
 		return _wood;
+	}
+	
+	public void setWood(long wood) {
+		this._food = wood;
 	}
 	
 	/**
@@ -53,11 +63,19 @@ public class PlayerResources extends ModelObservable<PlayerResources> {
 		return _stone;
 	}
 	
+	public void setSood(long stone) {
+		this._food = stone;
+	}
+	
 	/**
 	 * Returns amount of ore player has available
 	 * @return
 	 */
 	public long getOre() {
 		return _ore;
+	}
+	
+	public void setOre(long ore) {
+		this._food = ore;
 	}
 }
