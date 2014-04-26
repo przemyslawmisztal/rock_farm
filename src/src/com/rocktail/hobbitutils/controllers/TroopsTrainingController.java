@@ -6,8 +6,8 @@ public class TroopsTrainingController {
 
 	private PlayerResources _playerResources;
 	
-	public TroopsTrainingController() {
-		this._playerResources = new PlayerResources();
+	public TroopsTrainingController(PlayerResources playerResources) {
+		this.setPlayerResources(playerResources);
 	}
 	
 	/**
@@ -30,6 +30,14 @@ public class TroopsTrainingController {
 		   stoneAmount >= 0
 		   	&&
 		   oreAmount >= 0;
+	}
+
+	public PlayerResources getPlayerResources() {
+		return _playerResources;
+	}
+
+	private void setPlayerResources(PlayerResources _playerResources) {
+		this._playerResources = _playerResources;
 	}
 
 }
