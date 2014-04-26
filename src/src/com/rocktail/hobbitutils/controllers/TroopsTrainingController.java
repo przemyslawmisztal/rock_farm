@@ -35,8 +35,6 @@ public class TroopsTrainingController extends ControllerBase {
 		   stoneAmount >= 0
 		   	&&
 		   oreAmount >= 0;
-		
-		return false;
 	}
 
 }

@@ -50,10 +50,10 @@ public class TroopsTrainingSectionFragment extends Fragment
         final Button button = (Button) rootView.findViewById(R.id.acceptButton);
         button.setOnClickListener(this);
         
-        //we initialize player resources with no values so when fragment is shown there are zeros in input fields 
+        //we initialise player resources with no values so when fragment is shown there are zeros in input fields 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         
-        //we init controller and pass resources object
+        //we initialise controller and pass resources object
         this._controller = new TroopsTrainingController(this._playerResources);
         return rootView;
     }
@@ -64,6 +64,9 @@ public class TroopsTrainingSectionFragment extends Fragment
 		long stoneAmount = Long.parseLong(this._stoneAmount.getText().toString());
 		long oreAmount = Long.parseLong(this._oreAmount.getText().toString());
 		
+		if(this._controller.ValidateUserInput(foodAmount, woodAmount, stoneAmount, oreAmount)) {
+			
+		}
 		//this._controller.handleMessage(what, data);
 	}
 	
