@@ -6,8 +6,8 @@ public class TroopsTrainingController extends ControllerBase {
 
 	private PlayerResources _playerResources;
 	
-	public TroopsTrainingController(PlayerResources playerResources) {
-		this._playerResources = playerResources;
+	public TroopsTrainingController() {
+		
 	}
 	@Override
 	public boolean handleMessage(int what, Object data) {

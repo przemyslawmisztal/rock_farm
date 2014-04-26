@@ -54,7 +54,7 @@ public class TroopsTrainingSectionFragment extends Fragment
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         
         //we initialise controller and pass resources object
-        this._controller = new TroopsTrainingController(this._playerResources);
+        this._controller = new TroopsTrainingController();
         return rootView;
     }
 	
