@@ -53,6 +53,9 @@ public class TroopsTrainingSectionFragment extends Fragment
         //we initialise player resources with no values so when fragment is shown there are zeros in input fields 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         
+        //registering this view as observer
+        this._playerResources.addObserver(this);
+        
         //we initialise controller and pass resources object
         this._controller = new TroopsTrainingController(this._playerResources);
         return rootView;
@@ -65,13 +68,13 @@ public class TroopsTrainingSectionFragment extends Fragment
 		long oreAmount = Long.parseLong(this._oreAmount.getText().toString());
 		
 		if(this._controller.ValidateUserInput(foodAmount, woodAmount, stoneAmount, oreAmount)) {
-			
+			this._controller.HandleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
 		}
-		//this._controller.handleMessage(what, data);
+		
 	}
 	
 	private void updateView() {
-		this._foodAmount.setText(String.valueOf(this._playerResources.getFood()));
+		this._foodAmount.setText(String.valueOf(this._playerResources.getFood() * 10));
 		this._woodAmount.setText(String.valueOf(this._playerResources.getWood()));
 		this._stoneAmount.setText(String.valueOf(this._playerResources.getStone()));
 		this._oreAmount.setText(String.valueOf(this._playerResources.getOre()));

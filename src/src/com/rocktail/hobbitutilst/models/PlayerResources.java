@@ -45,6 +45,7 @@ public class PlayerResources extends Observable {
 	 */
 	public void setFood(long food) {
 		this._food = food;
+		setChanged();
 		notifyObservers();
 	}
 	
@@ -62,6 +63,7 @@ public class PlayerResources extends Observable {
 	 */
 	public void setWood(long wood) {
 		this._wood = wood;
+		setChanged();
 		notifyObservers();
 	}
 	
@@ -79,6 +81,7 @@ public class PlayerResources extends Observable {
 	 */
 	public void setStone(long stone) {
 		this._stone = stone;
+		setChanged();
 		notifyObservers();
 	}
 	
@@ -96,6 +99,7 @@ public class PlayerResources extends Observable {
 	 */
 	public void setOre(long ore) {
 		this._ore = ore;
+		setChanged();
 		notifyObservers();
 	}
 }
