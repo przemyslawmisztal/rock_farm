@@ -36,7 +36,7 @@ public class PlayerResources extends Observable {
 	 * @return
 	 */
 	public long getFood() {
-		return _food;
+		return this._food;
 	}
 	
 	/**
@@ -53,7 +53,7 @@ public class PlayerResources extends Observable {
 	 * @return
 	 */
 	public long getWood() {
-		return _wood;
+		return this._wood;
 	}
 	
 	/**
@@ -61,7 +61,7 @@ public class PlayerResources extends Observable {
 	 * @param wood
 	 */
 	public void setWood(long wood) {
-		this._food = wood;
+		this._wood = wood;
 		notifyObservers();
 	}
 	
@@ -78,7 +78,7 @@ public class PlayerResources extends Observable {
 	 * @param stone
 	 */
 	public void setStone(long stone) {
-		this._food = stone;
+		this._stone = stone;
 		notifyObservers();
 	}
 	
@@ -95,7 +95,7 @@ public class PlayerResources extends Observable {
 	 * @param ore
 	 */
 	public void setOre(long ore) {
-		this._food = ore;
+		this._ore = ore;
 		notifyObservers();
 	}
 }

@@ -1,5 +1,6 @@
 package com.rocktail.hobbitutils.test;
 
+import junit.framework.Assert;
 import android.test.AndroidTestCase;
 import static org.mockito.Mockito.*;
 
@@ -85,4 +86,45 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 		//assert
 		assertFalse(sut.ValidateUserInput(100, 100, 100, -100));
 	}	
+	
+	/**
+	 * We need to make sure that no invalid input is passed to model, that why it's important to fail when it happens
+	 */
+	public void testHandlingUserInputThrowsExceptionWhenValidationFails() {
+		//arrange
+		TroopsTrainingController sut = new TroopsTrainingController(GetPlayerResourcesMock());
+		
+		//act
+		try {
+			sut.HandleUserInput(-100, 100, 100, 100);
+		
+			fail("I shouldn't get that far");
+		}
+		catch(Exception e) {
+			Assert.assertEquals(IllegalArgumentException.class, e.getClass());
+		}
+	}
+	
+	/**
+	 * Checking if user input is passed correctly
+	 */
+	public void testCanHandleUserResourcesAmountInput() {
+		//arrange
+		int food = 100;
+		int wood = 200;
+		int stone = 300;
+		int ore = 400;
+		
+		PlayerResources playerResources = new PlayerResources(0, 0, 0 ,0);
+		TroopsTrainingController sut = new TroopsTrainingController(playerResources);
+		
+		//act
+		sut.HandleUserInput(food, wood, stone, ore);
+		
+		//assert
+		assertEquals(food, sut.getPlayerResources().getFood());
+		assertEquals(wood, sut.getPlayerResources().getWood());
+		assertEquals(stone, sut.getPlayerResources().getStone());
+		assertEquals(ore, sut.getPlayerResources().getOre());
+	}
 }
