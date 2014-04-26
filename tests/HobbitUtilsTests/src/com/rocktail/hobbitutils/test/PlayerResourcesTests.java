@@ -4,12 +4,20 @@ import android.test.AndroidTestCase;
 
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
+/**
+ * Class containing various tests for PlayerResources class
+ * @author rocktail
+ *
+ */
 public class PlayerResourcesTests extends AndroidTestCase {
 	private long _food = 150;
 	private long _wood = 200;
 	private long _stone = 50;
 	private long _ore = 300;
 	
+	/**
+	 * Simple test to see if constructor works
+	 */
 	public void testCanCreatePlayerResources() {
 		//arrange
 		PlayerResources sut;
@@ -21,6 +29,9 @@ public class PlayerResourcesTests extends AndroidTestCase {
 		assertNotNull(sut);
 	}
 	
+	/**
+	 * Checking if assigned resource values are in fact really correctly assigned
+	 */
 	public void testCreatePlayerResourcesWithCorrectValues() {
 		//arrange
 		PlayerResources sut;

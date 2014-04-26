@@ -40,7 +40,7 @@ public class TroopsTrainingSectionFragment extends Fragment
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_troop_training, container, false);
               
-        //lets find edit text that contain user input
+        //lets find all user input fields here
         this._foodAmount = (EditText)rootView.findViewById(R.id.foodAmountEditText);
         this._woodAmount = (EditText)rootView.findViewById(R.id.woodAmountEditText);
         this._stoneAmount = (EditText)rootView.findViewById(R.id.stoneAmountEditText);

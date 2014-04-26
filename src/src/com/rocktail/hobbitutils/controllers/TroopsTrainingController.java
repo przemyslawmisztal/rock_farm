@@ -2,17 +2,12 @@ package com.rocktail.hobbitutils.controllers;
 
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
-public class TroopsTrainingController extends ControllerBase {
+public class TroopsTrainingController {
 
 	private PlayerResources _playerResources;
 	
 	public TroopsTrainingController() {
-		
-	}
-	@Override
-	public boolean handleMessage(int what, Object data) {
-		// TODO Auto-generated method stub
-		return false;
+		this._playerResources = new PlayerResources();
 	}
 	
 	/**
