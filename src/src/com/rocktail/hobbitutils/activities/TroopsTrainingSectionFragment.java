@@ -14,6 +14,7 @@ import android.widget.EditText;
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
 import com.rocktail.hobbitutilst.models.PlayerResources;
+import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 public class TroopsTrainingSectionFragment extends Fragment 
 	implements Observer,
@@ -31,6 +32,7 @@ public class TroopsTrainingSectionFragment extends Fragment
     private EditText _stoneAmount;
     private EditText _oreAmount;
     private TroopsTrainingController _controller;
+    private TroopsTrainingCalculationResult _calculationResult;
     
     public TroopsTrainingSectionFragment() {
     }
@@ -50,11 +52,13 @@ public class TroopsTrainingSectionFragment extends Fragment
         final Button button = (Button) rootView.findViewById(R.id.acceptButton);
         button.setOnClickListener(this);
         
-        //we initialise player resources with no values so when fragment is shown there are zeros in input fields 
+        //initialising model 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
+        this._calculationResult = new TroopsTrainingCalculationResult();
         
         //registering this view as observer
         this._playerResources.addObserver(this);
+        this._calculationResult.addObserver(this);
         
         //we initialise controller and pass resources object
         this._controller = new TroopsTrainingController(this._playerResources);
@@ -74,7 +78,7 @@ public class TroopsTrainingSectionFragment extends Fragment
 	}
 	
 	private void updateView() {
-		this._foodAmount.setText(String.valueOf(this._playerResources.getFood() * 10));
+		this._foodAmount.setText(String.valueOf(this._playerResources.getFood()));
 		this._woodAmount.setText(String.valueOf(this._playerResources.getWood()));
 		this._stoneAmount.setText(String.valueOf(this._playerResources.getStone()));
 		this._oreAmount.setText(String.valueOf(this._playerResources.getOre()));

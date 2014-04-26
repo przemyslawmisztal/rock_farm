@@ -7,6 +7,11 @@ import static org.mockito.Mockito.*;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
+/**
+ * Class contains unit tests for TroopsTrainingController
+ * @author rocktail
+ *
+ */
 public class TroopsTrainingControllerTests extends AndroidTestCase {
 	/**
 	 * Simple constructor test - checking if object is in fact created
