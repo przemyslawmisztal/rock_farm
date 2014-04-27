@@ -21,8 +21,8 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 		//arrange
 		//act
 		TroopsTrainingController sut = new TroopsTrainingController(
-				GetPlayerResourcesMock(),
-				GetTroopsTrainingCalculationResult());
+				getPlayerResources(),
+				getTroopsTrainingCalculationResult());
 		
 		//assert
 		assertNotNull(sut);
@@ -33,27 +33,27 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	 */
 	public void testCanPassPlayerResurces() {
 		//arrange
-		PlayerResources playerResourcesMock = GetPlayerResourcesMock();
-		TroopsTrainingCalculationResult troopsTrainingCalculationResultMock = GetTroopsTrainingCalculationResult();
+		PlayerResources playerResources = getPlayerResources();
+		TroopsTrainingCalculationResult troopsTrainingCalculationResultMock = getTroopsTrainingCalculationResult();
 		
 		//act
 		TroopsTrainingController sut = new TroopsTrainingController(
-				playerResourcesMock,
+				playerResources,
 				troopsTrainingCalculationResultMock);
 		
 		//assert
-		assertSame(playerResourcesMock, sut.getPlayerResources());
+		assertSame(playerResources, sut.getPlayerResources());
 		assertSame(troopsTrainingCalculationResultMock, sut.getTroopsTrainingCalculationResult());
 	}
 	
-	private PlayerResources GetPlayerResourcesMock() {
-		PlayerResources playerResourcesMock = mock(PlayerResources.class);
-		return playerResourcesMock;
+	private PlayerResources getPlayerResources() {
+		PlayerResources playerResources = new PlayerResources(0, 0, 0, 0);
+		return playerResources;
 	}
 	
-	private TroopsTrainingCalculationResult GetTroopsTrainingCalculationResult() {
-		TroopsTrainingCalculationResult TroopsTrainingCalculationResultMock = mock(TroopsTrainingCalculationResult.class);
-		return TroopsTrainingCalculationResultMock;
+	private TroopsTrainingCalculationResult getTroopsTrainingCalculationResult() {
+		TroopsTrainingCalculationResult troopsTrainingCalculationResult = new TroopsTrainingCalculationResult();
+		return troopsTrainingCalculationResult;
 	}
 	
 	/**
@@ -62,8 +62,8 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	public void testValidationReturnFalseWhenNegativeFoodIsPassed() {
 		//arrange
 		TroopsTrainingController sut = new TroopsTrainingController(
-				GetPlayerResourcesMock(),
-				GetTroopsTrainingCalculationResult());
+				getPlayerResources(),
+				getTroopsTrainingCalculationResult());
 		
 		//act
 		//assert
@@ -76,8 +76,8 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	public void testValidationReturnFalseWhenNegativeWoodIsPassed() {
 		//arrange
 		TroopsTrainingController sut = new TroopsTrainingController(
-				GetPlayerResourcesMock(),
-				GetTroopsTrainingCalculationResult());
+				getPlayerResources(),
+				getTroopsTrainingCalculationResult());
 		
 		//act
 		//assert
@@ -90,8 +90,8 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	public void testValidationReturnFalseWhenNegativeStoneIsPassed() {
 		//arrange
 		TroopsTrainingController sut = new TroopsTrainingController(
-				GetPlayerResourcesMock(),
-				GetTroopsTrainingCalculationResult());
+				getPlayerResources(),
+				getTroopsTrainingCalculationResult());
 		
 		//act
 		//assert
@@ -104,8 +104,8 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	public void testValidationReturnFalseWhenNegativeOreIsPassed() {
 		//arrange
 		TroopsTrainingController sut = new TroopsTrainingController(
-				GetPlayerResourcesMock(),
-				GetTroopsTrainingCalculationResult());
+				getPlayerResources(),
+				getTroopsTrainingCalculationResult());
 		
 		//act
 		//assert
@@ -118,8 +118,8 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	public void testHandlingUserInputThrowsExceptionWhenValidationFails() {
 		//arrange
 		TroopsTrainingController sut = new TroopsTrainingController(
-				GetPlayerResourcesMock(),
-				GetTroopsTrainingCalculationResult());
+				getPlayerResources(),
+				getTroopsTrainingCalculationResult());
 		
 		//act
 		try {
@@ -145,7 +145,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 		PlayerResources playerResources = new PlayerResources(0, 0, 0 ,0);
 		TroopsTrainingController sut = new TroopsTrainingController(
 				playerResources,
-				GetTroopsTrainingCalculationResult());
+				getTroopsTrainingCalculationResult());
 		
 		//act
 		sut.HandleUserInput(food, wood, stone, ore);

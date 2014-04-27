@@ -66,6 +66,6 @@ public class TroopsTrainingCalculatorTests extends AndroidTestCase {
 		
 		//assert
 		assertSame(playerResources, sut.getPlayerResources());
-		assertSame(playerResources, sut.getUnits());
+		assertSame(unitModels, sut.getUnits());
 	}
 }
