@@ -205,14 +205,14 @@ public class Simplex {
 
 
     public static void test(double[][] A, double[] b, double[] c) {
-        /*Simplex lp = new Simplex(A, b, c);
-        StdOut.println("value = " + lp.value());
+        Simplex lp = new Simplex(A, b, c);
+        System.out.println("value = " + lp.value());
         double[] x = lp.primal();
         for (int i = 0; i < x.length; i++)
-        	StdOut.println("x[" + i + "] = " + x[i]);
+        	System.out.println("x[" + i + "] = " + x[i]);
         double[] y = lp.dual();
         for (int j = 0; j < y.length; j++)
-        	StdOut.println("y[" + j + "] = " + y[j]);*/
+        	System.out.println("y[" + j + "] = " + y[j]);
     }
 
     public static void test1() {
