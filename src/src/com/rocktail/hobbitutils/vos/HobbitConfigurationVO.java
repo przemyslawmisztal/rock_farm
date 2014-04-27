@@ -13,17 +13,17 @@ public class HobbitConfigurationVO {
 	
 	/**
 	 * Created new instance of configuration value object
-	 * @param tier1foot
-	 * @param tier1mounted
-	 * @param tier1ranged
+	 * @param tier1Foot
+	 * @param tier1Mounted
+	 * @param tier1Ranged
 	 */
 	public HobbitConfigurationVO(
-			HobbitUnitDefinitionVO tier1foot,
-			HobbitUnitDefinitionVO tier1mounted,
-			HobbitUnitDefinitionVO tier1ranged) {
-		this.setTier1FootUnit(tier1foot);
-		this.setTier1MountedUnit(tier1mounted);
-		this.setTier1RangedUnit(tier1ranged);
+			HobbitUnitDefinitionVO tier1Foot,
+			HobbitUnitDefinitionVO tier1Mounted,
+			HobbitUnitDefinitionVO tier1Ranged) {
+		this.setTier1FootUnit(tier1Foot);
+		this.setTier1MountedUnit(tier1Mounted);
+		this.setTier1RangedUnit(tier1Ranged);
 		
 	}
 
