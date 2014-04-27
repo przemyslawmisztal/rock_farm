@@ -1,6 +1,6 @@
 package com.rocktail.hobbitutils.test;
 
-import com.rocktail.hobbitutilst.models.UnitModel;
+import com.rocktail.hobbitutils.vos.HobbitUnitDefinitionVO;
 import com.rocktail.hobbitutilst.models.UnitType;
 
 /**
@@ -8,7 +8,7 @@ import com.rocktail.hobbitutilst.models.UnitType;
  * @author rocktail
  *
  */
-public class UnitModelTest extends android.test.AndroidTestCase {
+public class HobbitUnitDefinitionTests extends android.test.AndroidTestCase {
 	private String _name = "Terminator";
 	private long _wood = 150;
 	private long _food = 100;
@@ -20,10 +20,10 @@ public class UnitModelTest extends android.test.AndroidTestCase {
 	
 	public void testCanCreateUnitModel() {
 		//arrange
-		UnitModel sut;
+		HobbitUnitDefinitionVO sut;
 		
 		//act
-		sut = new UnitModel(this._name,
+		sut = new HobbitUnitDefinitionVO(this._name,
 							this._food,
 							this._wood,
 							this._stone,
@@ -38,10 +38,10 @@ public class UnitModelTest extends android.test.AndroidTestCase {
 	
 	public void testCreatedUnitModelHasCorrectPropertiesAssigned() {
 		//arrange
-		UnitModel sut;
+		HobbitUnitDefinitionVO sut;
 		
 		//act
-		sut = new UnitModel(this._name,
+		sut = new HobbitUnitDefinitionVO(this._name,
 							this._food,
 							this._wood,
 							this._stone,
@@ -68,7 +68,7 @@ public class UnitModelTest extends android.test.AndroidTestCase {
 		//arrange			
 		//act
 		try {
-			new UnitModel(
+			new HobbitUnitDefinitionVO(
 					this._name,
 					this._food,
 					this._wood,
@@ -92,7 +92,7 @@ public class UnitModelTest extends android.test.AndroidTestCase {
 		//arrange			
 		//act
 		try {
-			new UnitModel(
+			new HobbitUnitDefinitionVO(
 					this._name,
 					this._food,
 					this._wood,

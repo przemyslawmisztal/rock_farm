@@ -2,9 +2,9 @@ package com.rocktail.hobbitutils;
 
 import java.util.List;
 
+import com.rocktail.hobbitutils.vos.HobbitUnitDefinitionVO;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
-import com.rocktail.hobbitutilst.models.UnitModel;
 import com.rocktail.hobbitutilst.models.UnitType;
 
 /**
@@ -14,13 +14,13 @@ import com.rocktail.hobbitutilst.models.UnitType;
  */
 public class TroopsTrainingCalculator {
 	private PlayerResources _playerResources;
-	private List<UnitModel> _units;
+	private List<HobbitUnitDefinitionVO> _units;
 	/**
 	 * Creates new instance of {@link TroopsTrainingCalculator}
 	 * @param playerResources
 	 */
 	public TroopsTrainingCalculator(PlayerResources playerResources,
-			List<UnitModel> unitsToProduce) {
+			List<HobbitUnitDefinitionVO> unitsToProduce) {
 		this.setPlayerResources(playerResources);
 		this.setUnits(unitsToProduce);
 	}
@@ -30,9 +30,9 @@ public class TroopsTrainingCalculator {
 	 * @return
 	 */
 	public TroopsTrainingCalculationResult CalculateBestT1TroopsTraining() {
-		UnitModel t1_1 = this._units.get(0);
-		UnitModel t1_2 = this._units.get(1);
-		UnitModel t1_3 = this._units.get(2);
+		HobbitUnitDefinitionVO t1_1 = this._units.get(0);
+		HobbitUnitDefinitionVO t1_2 = this._units.get(1);
+		HobbitUnitDefinitionVO t1_3 = this._units.get(2);
 		
 		//as units may come in any order we need to make sure we know which is which
 		int footIndex = GetFootUnitIndex();
@@ -66,7 +66,7 @@ public class TroopsTrainingCalculator {
 	
 	private int GetFootUnitIndex() {
 		for(int i = 0; i < this._units.size(); i++) {
-			UnitModel unitModel = this._units.get(i);
+			HobbitUnitDefinitionVO unitModel = this._units.get(i);
 			
 			if (unitModel.getUnitType().equals(UnitType.Foot)) {
 				return i;
@@ -78,7 +78,7 @@ public class TroopsTrainingCalculator {
 	
 	private int GetRangedUnitIndex() {
 		for(int i = 0; i < this._units.size(); i++) {
-			UnitModel unitModel = this._units.get(i);
+			HobbitUnitDefinitionVO unitModel = this._units.get(i);
 			
 			if (unitModel.getUnitType().equals(UnitType.Ranged)) {
 				return i;
@@ -90,7 +90,7 @@ public class TroopsTrainingCalculator {
 	
 	private int GetMountedUnitIndex() {
 		for(int i = 0; i < this._units.size(); i++) {
-			UnitModel unitModel = this._units.get(i);
+			HobbitUnitDefinitionVO unitModel = this._units.get(i);
 			
 			if (unitModel.getUnitType().equals(UnitType.Mounted)) {
 				return i;
@@ -105,13 +105,13 @@ public class TroopsTrainingCalculator {
 		
 		return b;
 	}
-	private double[] PrepareMatrixForSimplex_C(UnitModel t1_1, UnitModel t1_2, UnitModel t1_3) {
+	private double[] PrepareMatrixForSimplex_C(HobbitUnitDefinitionVO t1_1, HobbitUnitDefinitionVO t1_2, HobbitUnitDefinitionVO t1_3) {
 		double[] c = { t1_1.getMight(), t1_2.getMight(), t1_2.getMight(), 0, 0, 0, 0 };
 		
 		return c;
 	}
 	
-	private double[][] PrepareMatrixForSimplex_A(UnitModel t1_1, UnitModel t1_2, UnitModel t1_3) {
+	private double[][] PrepareMatrixForSimplex_A(HobbitUnitDefinitionVO t1_1, HobbitUnitDefinitionVO t1_2, HobbitUnitDefinitionVO t1_3) {
 		double[][] A =  {
             { t1_1.getCostInFood(), t1_2.getCostInFood(), t1_3.getCostInFood(), 1, 0, 0, 0},
             { t1_1.getCostInWood(), t1_2.getCostInWood(), t1_3.getCostInWood(),  0, 1, 0, 0},
@@ -160,7 +160,7 @@ public class TroopsTrainingCalculator {
 	 * Gets list of units we want to produce
 	 * @return
 	 */
-	public List<UnitModel> getUnits() {
+	public List<HobbitUnitDefinitionVO> getUnits() {
 		return _units;
 	}
 
@@ -168,7 +168,7 @@ public class TroopsTrainingCalculator {
 	 * Sets list of units that we want to produce
 	 * @param _units
 	 */
-	private void setUnits(List<UnitModel> _units) {
+	private void setUnits(List<HobbitUnitDefinitionVO> _units) {
 		this._units = _units;
 	}
 

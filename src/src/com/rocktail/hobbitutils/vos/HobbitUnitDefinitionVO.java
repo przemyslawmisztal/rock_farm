@@ -1,13 +1,15 @@
 /**
  * 
  */
-package com.rocktail.hobbitutilst.models;
+package com.rocktail.hobbitutils.vos;
+
+import com.rocktail.hobbitutilst.models.UnitType;
 
 /**
  * @author rocktail
- * POJO class for storing properties of Hobbit unit 
+ * Class for storing properties of Hobbit unit 
  */
-public class UnitModel {
+public class HobbitUnitDefinitionVO {
 	private String _name;
 	private long _costInFood;
 	private long _costInWood;
@@ -28,7 +30,7 @@ public class UnitModel {
 	 * @param might
 	 * @param tier
 	 */
-	public UnitModel(String name,
+	public HobbitUnitDefinitionVO(String name,
 					 long costFood,
 					 long costWood,
 					 long costStone,
