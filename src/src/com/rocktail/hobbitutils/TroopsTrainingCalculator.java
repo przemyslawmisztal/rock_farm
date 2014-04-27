@@ -1,10 +1,8 @@
 package com.rocktail.hobbitutils;
 
-import java.util.List;
-
 import com.rocktail.hobbitutils.utils.Simplex;
+import com.rocktail.hobbitutils.vos.HobbitConfigurationVO;
 import com.rocktail.hobbitutils.vos.HobbitUnitDefinitionVO;
-import com.rocktail.hobbitutils.vos.UnitType;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
@@ -15,15 +13,21 @@ import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
  */
 public class TroopsTrainingCalculator {
 	private PlayerResources _playerResources;
-	private List<HobbitUnitDefinitionVO> _units;
+	private HobbitUnitDefinitionVO _tier1Foot;
+	private HobbitUnitDefinitionVO _tier1Ranged;
+	private HobbitUnitDefinitionVO _tier1Mounted;
+	
 	/**
 	 * Creates new instance of {@link TroopsTrainingCalculator}
 	 * @param playerResources
 	 */
 	public TroopsTrainingCalculator(PlayerResources playerResources,
-			List<HobbitUnitDefinitionVO> unitsToProduce) {
+			HobbitConfigurationVO hobbitConfiguration) {
 		this.setPlayerResources(playerResources);
-		this.setUnits(unitsToProduce);
+		
+		this.setTier1Foot(hobbitConfiguration.getTier1FootUnit());
+		this.setTier1Mounted(hobbitConfiguration.getTier1MountedUnit());
+		this.setTier1Ranged(hobbitConfiguration.getTier1RangedUnit());
 	}
 
 	/**
@@ -31,18 +35,19 @@ public class TroopsTrainingCalculator {
 	 * @return
 	 */
 	public TroopsTrainingCalculationResult CalculateBestT1TroopsTraining() {
-		HobbitUnitDefinitionVO t1_1 = this._units.get(0);
-		HobbitUnitDefinitionVO t1_2 = this._units.get(1);
-		HobbitUnitDefinitionVO t1_3 = this._units.get(2);
-		
+
 		//as units may come in any order we need to make sure we know which is which
-		int footIndex = GetFootUnitIndex();
-		int mountedIndex = GetMountedUnitIndex();
-		int rangedIndex = GetRangedUnitIndex();
+		int footIndex = 0;
+		int mountedIndex = 1;
+		int rangedIndex = 2;
 		
         try {       	
-            double[][] A = PrepareMatrixForSimplex_A(t1_1, t1_2, t1_3);
-            double[] c = PrepareMatrixForSimplex_C(t1_1, t1_2, t1_3);
+            double[][] A = PrepareMatrixForSimplex_A(
+            		this._tier1Foot,
+            		this._tier1Mounted,
+            		this._tier1Ranged);
+            
+            double[] c = PrepareMatrixForSimplex_C(this._tier1Foot, this._tier1Mounted, this._tier1Ranged);
             double[] b = PrepareMatrixForSimplex_B();
                 
             Simplex lp = new Simplex(A, b, c);
@@ -63,42 +68,6 @@ public class TroopsTrainingCalculator {
         	
         	return null;
         }
-	}
-	
-	private int GetFootUnitIndex() {
-		for(int i = 0; i < this._units.size(); i++) {
-			HobbitUnitDefinitionVO unitModel = this._units.get(i);
-			
-			if (unitModel.getUnitType().equals(UnitType.Foot)) {
-				return i;
-			}
-		}
-		
-		return -1;
-	}
-	
-	private int GetRangedUnitIndex() {
-		for(int i = 0; i < this._units.size(); i++) {
-			HobbitUnitDefinitionVO unitModel = this._units.get(i);
-			
-			if (unitModel.getUnitType().equals(UnitType.Ranged)) {
-				return i;
-			}
-		}
-		
-		return -1;
-	}
-	
-	private int GetMountedUnitIndex() {
-		for(int i = 0; i < this._units.size(); i++) {
-			HobbitUnitDefinitionVO unitModel = this._units.get(i);
-			
-			if (unitModel.getUnitType().equals(UnitType.Mounted)) {
-				return i;
-			}
-		}
-		
-		return -1;
 	}
 
 	private double[] PrepareMatrixForSimplex_B() {
@@ -157,20 +126,16 @@ public class TroopsTrainingCalculator {
 		this._playerResources = _playerResources;
 	}
 
-	/**
-	 * Gets list of units we want to produce
-	 * @return
-	 */
-	public List<HobbitUnitDefinitionVO> getUnits() {
-		return _units;
+	private void setTier1Foot(HobbitUnitDefinitionVO _tier1foot) {
+		this._tier1Foot = _tier1foot;
 	}
 
-	/**
-	 * Sets list of units that we want to produce
-	 * @param _units
-	 */
-	private void setUnits(List<HobbitUnitDefinitionVO> _units) {
-		this._units = _units;
+	public void setTier1Ranged(HobbitUnitDefinitionVO _tier1Ranged) {
+		this._tier1Ranged = _tier1Ranged;
+	}
+
+	public void setTier1Mounted(HobbitUnitDefinitionVO _tier1Mounted) {
+		this._tier1Mounted = _tier1Mounted;
 	}
 
 }
