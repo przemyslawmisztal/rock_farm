@@ -1,14 +1,19 @@
 package com.rocktail.hobbitutils.controllers;
 
 import com.rocktail.hobbitutilst.models.PlayerResources;
+import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 public class TroopsTrainingController {
 
 	private PlayerResources _playerResources;
+	private TroopsTrainingCalculationResult _troopsTrainingCalculationResult;
+	
 	private String _VALIDATE_ERROR = "Invalid user input - provided negative resource amount";
 	
-	public TroopsTrainingController(PlayerResources playerResources) {
+	public TroopsTrainingController(PlayerResources playerResources,
+			TroopsTrainingCalculationResult troopsTrainingCalculationResult) {
 		this.setPlayerResources(playerResources);
+		this.setTroopsTrainingCalculationResult(troopsTrainingCalculationResult);
 	}
 	
 	/**
@@ -60,6 +65,15 @@ public class TroopsTrainingController {
 		this._playerResources.setWood(woodAmount);
 		this._playerResources.setStone(stoneAmount);
 		this._playerResources.setOre(oreAmount);
+	}
+
+	public TroopsTrainingCalculationResult getTroopsTrainingCalculationResult() {
+		return this._troopsTrainingCalculationResult;
+	}
+
+	public void setTroopsTrainingCalculationResult(
+			TroopsTrainingCalculationResult troopsTrainingCalculationResult) {
+		this._troopsTrainingCalculationResult = troopsTrainingCalculationResult;
 	}
 
 }
