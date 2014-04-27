@@ -17,7 +17,8 @@ public class UnitModel extends Observable {
 	private long _costInOre;
 	private int _might;
 	private int _tier;
-	
+	private UnitType _unitType;
+	private String _INVALID_UNIT_TYPE_MSG = "No or invalid unit type provided.";
 	/**
 	 * Using constructor is the only way to assign values to instance of this class
 	 * @param name
@@ -34,7 +35,8 @@ public class UnitModel extends Observable {
 					 long costStone,
 					 long costOre,
 					 int might,
-					 int tier) {
+					 int tier,
+					 UnitType unitType) {
 		this._name = name;
 		this._might = might;
 		this._tier = tier;
@@ -42,6 +44,7 @@ public class UnitModel extends Observable {
 		this._costInOre = costOre;
 		this._costInStone = costStone;
 		this._costInWood = costWood;
+		this.setUnitType(unitType);
 	}
 	
 	public String getName() {
@@ -70,5 +73,17 @@ public class UnitModel extends Observable {
 
 	public long getCostInFood() {
 		return _costInFood;
+	}
+
+	public UnitType getUnitType() {
+		return _unitType;
+	}
+
+	public void setUnitType(UnitType unitType) {
+		if (unitType == null || unitType == UnitType.Invalid) {
+			throw new IllegalArgumentException(this._INVALID_UNIT_TYPE_MSG);
+		}
+		
+		this._unitType = unitType;
 	}
 }
