@@ -29,7 +29,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	}
 
 	/**
-	 * Checking if parameter is correctly assigned
+	 * Checking if parameters are correctly assigned
 	 */
 	public void testCanPassPlayerResurces() {
 		//arrange
