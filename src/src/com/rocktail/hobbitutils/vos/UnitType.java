@@ -1,4 +1,4 @@
-package com.rocktail.hobbitutilst.models;
+package com.rocktail.hobbitutils.vos;
 
 /**
  * Enumeration for unit types

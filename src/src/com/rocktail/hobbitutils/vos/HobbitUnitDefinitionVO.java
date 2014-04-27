@@ -3,7 +3,6 @@
  */
 package com.rocktail.hobbitutils.vos;
 
-import com.rocktail.hobbitutilst.models.UnitType;
 
 /**
  * @author rocktail

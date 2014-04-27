@@ -5,7 +5,7 @@ import android.test.AndroidTestCase;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 /**
- * Class contains unit tests for TroopsTrainingCalculationResult
+ * Class contains unit tests for {@link TroopsTrainingCalculationResult}iningCalculationResult
  * @author rocktail
  *
  */

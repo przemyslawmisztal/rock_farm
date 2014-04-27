@@ -1,10 +1,10 @@
 package com.rocktail.hobbitutils.test;
 
 import com.rocktail.hobbitutils.vos.HobbitUnitDefinitionVO;
-import com.rocktail.hobbitutilst.models.UnitType;
+import com.rocktail.hobbitutils.vos.UnitType;
 
 /**
- * Contains tests for UnitModel class
+ * Contains tests for {@link HobbitUnitDefinitionVO} class
  * @author rocktail
  *
  */

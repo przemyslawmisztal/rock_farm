@@ -5,7 +5,7 @@ import android.test.AndroidTestCase;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 
 /**
- * Class containing various tests for PlayerResources class
+ * Class containing various tests for {@link PlayerResources} class
  * @author rocktail
  *
  */

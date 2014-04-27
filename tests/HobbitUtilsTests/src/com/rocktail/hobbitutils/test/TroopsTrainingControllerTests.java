@@ -8,7 +8,7 @@ import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 /**
- * Class contains unit tests for TroopsTrainingController
+ * Class contains unit tests for {@link TroopsTrainingController}
  * @author rocktail
  *
  */

@@ -2,10 +2,11 @@ package com.rocktail.hobbitutils;
 
 import java.util.List;
 
+import com.rocktail.hobbitutils.utils.Simplex;
 import com.rocktail.hobbitutils.vos.HobbitUnitDefinitionVO;
+import com.rocktail.hobbitutils.vos.UnitType;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
-import com.rocktail.hobbitutilst.models.UnitType;
 
 /**
  * Handles calculations that provide answer what troops to train to spend most of the resources  

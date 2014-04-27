@@ -1,4 +1,5 @@
-package com.rocktail.hobbitutils;
+package com.rocktail.hobbitutils.utils;
+
 
 public class Simplex {
     private static final double EPSILON = 1.0E-10;

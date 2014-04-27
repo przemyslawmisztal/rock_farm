@@ -1,4 +1,4 @@
-package com.rocktail.hobbitutils;
+package com.rocktail.hobbitutils.utils;
 
 /*************************************************************************
  *  Compilation:  javac StdRandom.java

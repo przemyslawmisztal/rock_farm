@@ -7,11 +7,11 @@ import android.test.AndroidTestCase;
 
 import com.rocktail.hobbitutils.TroopsTrainingCalculator;
 import com.rocktail.hobbitutils.vos.HobbitUnitDefinitionVO;
+import com.rocktail.hobbitutils.vos.UnitType;
 import com.rocktail.hobbitutilst.models.PlayerResources;
-import com.rocktail.hobbitutilst.models.UnitType;
 
 /**
- * Class contains unit tests for TroopsTrainingCalculator
+ * Class contains unit tests for {@link TroopsTrainingCalculator}
  * @author rocktail
  *
  */
