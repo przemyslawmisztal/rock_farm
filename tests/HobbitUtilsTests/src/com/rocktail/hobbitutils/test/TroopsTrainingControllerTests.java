@@ -2,7 +2,6 @@ package com.rocktail.hobbitutils.test;
 
 import junit.framework.Assert;
 import android.test.AndroidTestCase;
-import static org.mockito.Mockito.*;
 
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
 import com.rocktail.hobbitutilst.models.PlayerResources;
