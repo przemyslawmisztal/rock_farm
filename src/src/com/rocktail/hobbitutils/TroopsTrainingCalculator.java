@@ -92,13 +92,12 @@ public class TroopsTrainingCalculator {
 		return c;
 	}
 	
-	
 	private double[][] PrepareMatrixForSimplex_A(HobbitUnitDefinitionVO t1_1, HobbitUnitDefinitionVO t1_2, HobbitUnitDefinitionVO t1_3) {
 		double[][] A =  {
             { t1_1.getCostInFood(), 	t1_2.getCostInFood(),	t1_3.getCostInFood(),	1, 0, 0, 0},
             { t1_1.getCostInWood(),		t1_2.getCostInWood(),	t1_3.getCostInWood(),  	0, 1, 0, 0},
-            { t1_1.getCostInStone(),	t1_2.getCostInStone(),	t1_2.getCostInStone(), 	0, 0, 1, 0},
-            { t1_1.getCostInOre(), 		t1_2.getCostInOre(),	t1_2.getCostInOre(), 	0, 0, 0, 1},
+            { t1_1.getCostInStone(),	t1_2.getCostInStone(),	t1_3.getCostInStone(), 	0, 0, 1, 0},
+            { t1_1.getCostInOre(), 		t1_2.getCostInOre(),	t1_3.getCostInOre(), 	0, 0, 0, 1},
         };
 		
 		return A;
@@ -167,7 +166,7 @@ public class TroopsTrainingCalculator {
 	 * @return
 	 */
 	public HobbitUnitDefinitionVO getTier1Foot() {
-		return _tier1Foot;
+		return this._tier1Foot;
 	}
 
 	/**
@@ -175,7 +174,7 @@ public class TroopsTrainingCalculator {
 	 * @return
 	 */
 	public HobbitUnitDefinitionVO getTier1Ranged() {
-		return _tier1Ranged;
+		return this._tier1Ranged;
 	}
 
 	/**
@@ -183,7 +182,7 @@ public class TroopsTrainingCalculator {
 	 * @return
 	 */
 	public HobbitUnitDefinitionVO getTier1Mounted() {
-		return _tier1Mounted;
+		return this._tier1Mounted;
 	}
 
 }

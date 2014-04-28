@@ -37,8 +37,14 @@ public class HobbitConfigurationTests extends AndroidTestCase {
 		
 		//assert
 		assertSame(definition, sut1.getTier1FootUnit());
+		assertNull(sut1.getTier1MountedUnit());
+		assertNull(sut1.getTier1RangedUnit());
 		assertSame(definition, sut2.getTier1MountedUnit());
+		assertNull(sut2.getTier1FootUnit());
+		assertNull(sut2.getTier1RangedUnit());
 		assertSame(definition, sut3.getTier1RangedUnit());
+		assertNull(sut3.getTier1MountedUnit());
+		assertNull(sut3.getTier1FootUnit());
 	}
 	
 	/**

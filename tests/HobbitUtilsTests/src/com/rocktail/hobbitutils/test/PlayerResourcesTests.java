@@ -45,4 +45,22 @@ public class PlayerResourcesTests extends AndroidTestCase {
 		assertEquals(this._stone, sut.getStone());
 		assertEquals(this._wood, sut.getWood());
 	}
+	
+	public void testCanAssignResources() {
+		//arrange
+		PlayerResources sut;
+		sut = new PlayerResources(0, 0, 0, 0);
+		
+		//act
+		sut.setFood(this._food);
+		sut.setOre(this._ore);
+		sut.setStone(this._stone);
+		sut.setWood(this._wood);
+		
+		//assert
+		assertEquals(this._food, sut.getFood());
+		assertEquals(this._ore, sut.getOre());
+		assertEquals(this._stone, sut.getStone());
+		assertEquals(this._wood, sut.getWood());
+	}
 }
