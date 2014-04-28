@@ -116,7 +116,7 @@ public class TroopsTrainingCalculatorTests extends AndroidTestCase {
 		//arrange
 		PlayerResources playerResources = getPlayerResources();
 		
-		//stone cost for mounted unit is set to MIN_AMOUNT so no other unit is possible to build
+		//stone cost for ranged unit is set to MIN_AMOUNT so no other unit is possible to build
 		playerResources.setOre(this._MIN_AMOUNT);
 		
 		HobbitConfigurationVO config = getHobbitConfiguration();
@@ -129,6 +129,43 @@ public class TroopsTrainingCalculatorTests extends AndroidTestCase {
 		assertEquals(0, res.getFootTroopsAmount());
 		assertEquals(0, res.getMountedTroopsAmount());
 		assertEquals(1, res.getRangedTroopsAmount());
+	}
+	
+	public void testCanCreateMaximumPossibleAmountOfUnits() {
+		//arrange
+		PlayerResources playerResources = getPlayerResources();
+		
+		//food is limiting resource, we should get 10 units out of calculation
+		playerResources.setFood(this._SAMPLE_AMOUNT * 10);
+		playerResources.setWood(this._SAMPLE_AMOUNT * 1000);
+		playerResources.setOre(this._SAMPLE_AMOUNT * 1000);
+		playerResources.setStone(this._SAMPLE_AMOUNT * 1000);
+		
+		HobbitConfigurationVO config = getHobbitConfiguration();
+		TroopsTrainingCalculator sut = new TroopsTrainingCalculator(playerResources, config);
+		
+		//act
+		TroopsTrainingCalculationResult res = sut.CalculateBestT1TroopsTraining();
+		
+		//assert
+		assertEquals(10, res.getFootTroopsAmount() + res.getMountedTroopsAmount() + res.getRangedTroopsAmount());
+	}
+	
+	public void testReturnZeroUnitsWhenWeCantBuildAnything() {
+		//arrange
+		PlayerResources playerResources = getPlayerResources();
+		
+		//food is limiting resource, we should get 0 units out of calculation
+		playerResources.setFood(0);
+		
+		HobbitConfigurationVO config = getHobbitConfiguration();
+		TroopsTrainingCalculator sut = new TroopsTrainingCalculator(playerResources, config);
+		
+		//act
+		TroopsTrainingCalculationResult res = sut.CalculateBestT1TroopsTraining();
+		
+		//assert
+		assertEquals(0, res.getFootTroopsAmount() + res.getMountedTroopsAmount() + res.getRangedTroopsAmount());
 	}
 }
 
