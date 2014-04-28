@@ -1,11 +1,11 @@
 rock_farm
 =========
 
-Simple but useful utilities for Hobbit Kingdoms game
+Simple but useful Android application with utilities for Hobbit Kingdoms game
 
 ####Troop training
 
-Determine best way to queue T1 troops while making sure your resources are used in most efficient way.
+Determine best way to queue T1 troops while making sure that your resources are used in most efficient way.
 
 
 ####Licensing
