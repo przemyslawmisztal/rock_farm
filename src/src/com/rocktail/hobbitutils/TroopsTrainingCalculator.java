@@ -114,9 +114,9 @@ public class TroopsTrainingCalculator {
 			double ranged) {
 		TroopsTrainingCalculationResult result = new TroopsTrainingCalculationResult();
 		
-		result.setFootTroopsAmount((int)foot);
-		result.setMountedTroopsAmount((int)mounted);
-		result.setRangedTroopsAmount((int)ranged);
+		result.setFootTroopsAmount(Math.round(foot));
+		result.setMountedTroopsAmount(Math.round(mounted));
+		result.setRangedTroopsAmount(Math.round(ranged));
 		
 		return result;
 	}
