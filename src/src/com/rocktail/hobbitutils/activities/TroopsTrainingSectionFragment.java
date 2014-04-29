@@ -31,6 +31,9 @@ public class TroopsTrainingSectionFragment extends Fragment
     private EditText _woodAmount;
     private EditText _stoneAmount;
     private EditText _oreAmount;
+    private EditText _t1FootUnitsAmount;
+    private EditText _t1MountedUnitsAmount;
+    private EditText _t1RangedUnitsAmount;
     private TroopsTrainingController _controller;
     private TroopsTrainingCalculationResult _calculationResult;
     
@@ -47,6 +50,10 @@ public class TroopsTrainingSectionFragment extends Fragment
         this._woodAmount = (EditText)rootView.findViewById(R.id.woodAmountEditText);
         this._stoneAmount = (EditText)rootView.findViewById(R.id.stoneAmountEditText);
         this._oreAmount = (EditText)rootView.findViewById(R.id.oreAmountEditText);
+        
+        this._t1FootUnitsAmount = (EditText)rootView.findViewById(R.id.resT1FootEditText);
+        this._t1MountedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1MountedEditText);
+        this._t1RangedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1RangedEditText);
         
         //we need to find accept button and register listener to be able to catch user interaction
         final Button button = (Button) rootView.findViewById(R.id.acceptButton);
@@ -72,7 +79,7 @@ public class TroopsTrainingSectionFragment extends Fragment
 		long oreAmount = Long.parseLong(this._oreAmount.getText().toString());
 		
 		if(this._controller.ValidateUserInput(foodAmount, woodAmount, stoneAmount, oreAmount)) {
-			this._controller.HandleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
+			this._controller.handleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
 		}
 		
 	}
@@ -82,11 +89,21 @@ public class TroopsTrainingSectionFragment extends Fragment
 		this._woodAmount.setText(String.valueOf(this._playerResources.getWood()));
 		this._stoneAmount.setText(String.valueOf(this._playerResources.getStone()));
 		this._oreAmount.setText(String.valueOf(this._playerResources.getOre()));
+		
+		this._t1FootUnitsAmount.setText(String.valueOf(this._calculationResult.getFootTroopsAmount()));
+		this._t1MountedUnitsAmount.setText(String.valueOf(this._calculationResult.getMountedTroopsAmount()));
+		this._t1RangedUnitsAmount.setText(String.valueOf(this._calculationResult.getRangedTroopsAmount()));
 	}
 
 	@Override
 	public void onClick(View v) {
 		readUserInput();
+		calculateUnits();
+	}
+
+	private void calculateUnits() {
+		this._controller.handleTroopsCalculations();
+		
 	}
 
 	@Override

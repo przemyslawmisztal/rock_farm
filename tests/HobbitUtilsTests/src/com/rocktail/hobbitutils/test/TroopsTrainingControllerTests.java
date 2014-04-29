@@ -122,7 +122,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 		
 		//act
 		try {
-			sut.HandleUserInput(-100, 100, 100, 100);
+			sut.handleUserInput(-100, 100, 100, 100);
 		
 			fail("I shouldn't get that far");
 		}
@@ -147,7 +147,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 				getTroopsTrainingCalculationResult());
 		
 		//act
-		sut.HandleUserInput(food, wood, stone, ore);
+		sut.handleUserInput(food, wood, stone, ore);
 		
 		//assert
 		assertEquals(food, sut.getPlayerResources().getFood());

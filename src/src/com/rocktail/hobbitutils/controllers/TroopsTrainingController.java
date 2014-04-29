@@ -1,5 +1,7 @@
 package com.rocktail.hobbitutils.controllers;
 
+import com.rocktail.hobbitutils.TroopsTrainingCalculator;
+import com.rocktail.hobbitutils.utils.AppConfigReader;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
@@ -53,7 +55,7 @@ public class TroopsTrainingController {
 	 * @param stoneAmount
 	 * @param oreAmount
 	 */
-	public void HandleUserInput(long foodAmount,
+	public void handleUserInput(long foodAmount,
 									 long woodAmount,
 									 long stoneAmount,
 									 long oreAmount) {
@@ -65,6 +67,19 @@ public class TroopsTrainingController {
 		this._playerResources.setWood(woodAmount);
 		this._playerResources.setStone(stoneAmount);
 		this._playerResources.setOre(oreAmount);
+	}
+	
+	/**
+	 * Delegates calculation task to proper service and updated model with the result
+	 */
+	public void handleTroopsCalculations() {
+		TroopsTrainingCalculator calc = new TroopsTrainingCalculator(this._playerResources, AppConfigReader.getHobbitConfiguration());
+		
+		TroopsTrainingCalculationResult res = calc.CalculateBestT1TroopsTraining();
+		
+		this._troopsTrainingCalculationResult.setFootTroopsAmount(res.getFootTroopsAmount());
+		this._troopsTrainingCalculationResult.setMountedTroopsAmount(res.getMountedTroopsAmount());
+		this._troopsTrainingCalculationResult.setRangedTroopsAmount(res.getRangedTroopsAmount());
 	}
 
 	public TroopsTrainingCalculationResult getTroopsTrainingCalculationResult() {
