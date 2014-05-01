@@ -59,6 +59,8 @@ public class TroopsTrainingSectionFragment extends Fragment
         final ImageButton button = (ImageButton) rootView.findViewById(R.id.acceptButton);
         button.setOnClickListener(this);
         
+        //this._t1FootUnitsAmount.addTextChangedListener(this);
+        
         //initialising model 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         this._calculationResult = new TroopsTrainingCalculationResult();
