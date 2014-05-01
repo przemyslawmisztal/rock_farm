@@ -5,12 +5,13 @@ import java.util.Observer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
 import com.rocktail.hobbitutilst.models.PlayerResources;
@@ -59,8 +60,19 @@ public class TroopsTrainingSectionFragment extends Fragment
         final ImageButton button = (ImageButton) rootView.findViewById(R.id.acceptButton);
         button.setOnClickListener(this);
         
-        //this._t1FootUnitsAmount.addTextChangedListener(this);
-        
+        _t1FootUnitsAmount.addTextChangedListener(new TextWatcher() {
+        		public void afterTextChanged(Editable s) {
+        			//TroopsTrainingSectionFragment.this.clearResults();
+        		}
+        	 
+        		public void beforeTextChanged(CharSequence s, int start, 
+        			int count, int after) {
+        		}
+        		public void onTextChanged(CharSequence s, int start,
+        			int before, int count) {
+        		}
+        });
+               
         //initialising model 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         this._calculationResult = new TroopsTrainingCalculationResult();
@@ -84,6 +96,12 @@ public class TroopsTrainingSectionFragment extends Fragment
 			this._controller.handleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
 		}
 		
+	}
+	
+	private void clearResults() {
+		this._t1FootUnitsAmount.setText("");
+		this._t1MountedUnitsAmount.setText("");
+		this._t1RangedUnitsAmount.setText("");
 	}
 	
 	private void updateView() {
