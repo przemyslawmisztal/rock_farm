@@ -16,7 +16,7 @@ public class TroopsTrainingCalculator {
 	private HobbitUnitDefinitionVO _tier1Foot;
 	private HobbitUnitDefinitionVO _tier1Ranged;
 	private HobbitUnitDefinitionVO _tier1Mounted;
-	
+	private long _K_MULTIPLIER = 1000; 
 	/**
 	 * Creates new instance of {@link TroopsTrainingCalculator}
 	 * @param playerResources
@@ -72,10 +72,10 @@ public class TroopsTrainingCalculator {
 
 	private double[] PrepareMatrixForSimplex_B() {
 		double[] b = { 
-				this._playerResources.getFood(),
-				this._playerResources.getWood(),
-				this._playerResources.getStone(),
-				this._playerResources.getOre() };
+				this._playerResources.getFood() * this._K_MULTIPLIER,
+				this._playerResources.getWood() * this._K_MULTIPLIER,
+				this._playerResources.getStone() * this._K_MULTIPLIER,
+				this._playerResources.getOre() * this._K_MULTIPLIER };
 		
 		return b;
 	}

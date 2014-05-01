@@ -12,5 +12,6 @@
     <string name="resource_wood">Wood</string>
     <string name="resource_stone">Stone</string>
     <string name="resource_ore">Ore</string>
+    <string name="player_resources">Available resources (in thousands):</string>
 
 </resources>

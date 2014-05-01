@@ -8,8 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
@@ -56,7 +56,7 @@ public class TroopsTrainingSectionFragment extends Fragment
         this._t1RangedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1RangedEditText);
         
         //we need to find accept button and register listener to be able to catch user interaction
-        final Button button = (Button) rootView.findViewById(R.id.acceptButton);
+        final ImageButton button = (ImageButton) rootView.findViewById(R.id.acceptButton);
         button.setOnClickListener(this);
         
         //initialising model 
