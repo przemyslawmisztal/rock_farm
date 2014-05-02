@@ -1,4 +1,6 @@
 package com.rocktail.hobbitutils.test;
+import org.easymock.EasyMock;
+
 import android.test.AndroidTestCase;
 
 import com.rocktail.hobbitutils.vos.HobbitConfigurationVO;
@@ -23,6 +25,14 @@ public class HobbitConfigurationTests extends AndroidTestCase {
 		assertNotNull(sut);
 	}
 	
+	private HobbitConfigurationVO getHobbitConfigurationMock(HobbitUnitDefinitionVO definition) {
+		HobbitConfigurationVO mock = EasyMock.createMock(HobbitConfigurationVO.class);
+		EasyMock.expect(mock.getTier1FootUnit()).andReturn(definition);
+		EasyMock.expect(mock.getTier1MountedUnit()).andReturn(definition);
+		EasyMock.expect(mock.getTier1RangedUnit()).andReturn(definition);
+		
+        return mock;
+	}
 	/**
 	 * Test to check if passed parameters to constructor are correctly assigned to properties
 	 */
@@ -31,20 +41,12 @@ public class HobbitConfigurationTests extends AndroidTestCase {
 		HobbitUnitDefinitionVO definition = getHobbitUnitDefinition();
 		
 		//act
-		HobbitConfigurationVO sut1 = new HobbitConfigurationVO(definition, null, null);
-		HobbitConfigurationVO sut2 = new HobbitConfigurationVO(null, definition, null);
-		HobbitConfigurationVO sut3 = new HobbitConfigurationVO(null, null, definition);
+		HobbitConfigurationVO sut1 = getHobbitConfigurationMock(definition);
 		
 		//assert
 		assertSame(definition, sut1.getTier1FootUnit());
-		assertNull(sut1.getTier1MountedUnit());
-		assertNull(sut1.getTier1RangedUnit());
-		assertSame(definition, sut2.getTier1MountedUnit());
-		assertNull(sut2.getTier1FootUnit());
-		assertNull(sut2.getTier1RangedUnit());
-		assertSame(definition, sut3.getTier1RangedUnit());
-		assertNull(sut3.getTier1MountedUnit());
-		assertNull(sut3.getTier1FootUnit());
+		assertSame(definition, sut1.getTier1MountedUnit());
+		assertSame(definition, sut1.getTier1RangedUnit());
 	}
 	
 	/**
