@@ -1,0 +1,58 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/pref_t1_foot_cost"
+        android:key="pref_key_storage_settings">
+        
+        <EditTextPreference 
+            android:key="pref_t1_foot_food_cost"
+            android:title="@string/resource_food"/>
+        <EditTextPreference 
+            android:key="pref_t1_foot_wood_cost"
+            android:title="@string/resource_wood"/>
+        <EditTextPreference 
+            android:key="pref_t1_foot_stone_cost"
+            android:title="@string/resource_stone"/>
+        <EditTextPreference 
+            android:key="pref_t1_foot_ore_cost"
+            android:title="@string/resource_ore"/>
+        
+    </PreferenceCategory>
+    
+    <PreferenceCategory
+        android:title="@string/pref_t1_mounted_unit_cost"
+        android:key="pref_key_storage_settings">
+        
+        <EditTextPreference 
+            android:key="pref_t1_mounted_food_cost"
+            android:title="@string/resource_food"/>
+        <EditTextPreference 
+            android:key="pref_t1_mounted_wood_cost"
+            android:title="@string/resource_wood"/>
+        <EditTextPreference 
+            android:key="pref_t1_mounted_stone_cost"
+            android:title="@string/resource_stone"/>
+        <EditTextPreference 
+            android:key="pref_t1_mounted_ore_cost"
+            android:title="@string/resource_ore"/>
+                
+    </PreferenceCategory>    
+    
+    <PreferenceCategory
+        android:title="@string/pref_t1_ranged_cost"
+        android:key="pref_key_storage_settings">
+        
+        <EditTextPreference 
+            android:key="pref_t1_ranged_food_cost"
+            android:title="@string/resource_food"/>
+        <EditTextPreference 
+            android:key="pref_t1_ranged_wood_cost"
+            android:title="@string/resource_wood"/>
+        <EditTextPreference 
+            android:key="pref_t1_ranged_stone_cost"
+            android:title="@string/resource_stone"/>
+        <EditTextPreference 
+            android:key="pref_t1_ranged_ore_cost"
+            android:title="@string/resource_ore"/> 
+                   
+    </PreferenceCategory>        
+</PreferenceScreen>
