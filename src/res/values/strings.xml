@@ -16,5 +16,7 @@
     <string name="pref_t1_foot_cost">T1 foot unit cost</string>
     <string name="pref_t1_ranged_cost">T1 ranged unit cost</string>
     <string name="pref_t1_mounted_unit_cost">T1 mounted unit cost</string>
+    <string name="title_activity_unit_cost_settings_fragment">UnitCostSettingsFragment</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

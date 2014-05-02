@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.rocktail.hobbitutils.activities.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.rocktail.hobbitutils.UnitCostSettingsFragment"
+            android:label="@string/title_activity_unit_cost_settings_fragment" >
+        </activity>
     </application>
 
 </manifest>
