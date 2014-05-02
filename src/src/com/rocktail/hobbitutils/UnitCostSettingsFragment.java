@@ -17,6 +17,9 @@ public class UnitCostSettingsFragment extends PreferenceFragment
         addPreferencesFromResource(R.xml.preferences);
     }
 	
+	/**
+	 * Displaying current setting value in summary field
+	 */
 	public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 	    Preference pref = findPreference(key);
 
@@ -25,4 +28,20 @@ public class UnitCostSettingsFragment extends PreferenceFragment
 	        pref.setSummary(listPref.getText());
 	    }
 	}
+	
+	@Override
+	public void onResume() {
+        super.onResume();
+        // Set up a listener whenever a key changes
+        getPreferenceScreen().getSharedPreferences()
+                .registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // Unregister the listener whenever a key changes
+        getPreferenceScreen().getSharedPreferences()
+                .unregisterOnSharedPreferenceChangeListener(this);
+    }
 }
