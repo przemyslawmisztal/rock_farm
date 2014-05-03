@@ -5,19 +5,23 @@
         
         <EditTextPreference 
             android:key="pref_t1_foot_food_cost"
-            android:title="@string/resource_food"/>
+            android:title="@string/resource_food"
+            android:defaultValue="150"/>
         
         <EditTextPreference 
             android:key="pref_t1_foot_wood_cost"
-            android:title="@string/resource_wood"/>
+            android:title="@string/resource_wood"
+            android:defaultValue="220"/>
         
         <EditTextPreference 
             android:key="pref_t1_foot_stone_cost"
-            android:title="@string/resource_stone"/>
+            android:title="@string/resource_stone"
+            android:defaultValue="100"/>
         
         <EditTextPreference 
             android:key="pref_t1_foot_ore_cost"
-            android:title="@string/resource_ore"/>
+            android:title="@string/resource_ore"
+            android:defaultValue="50"/>
                        
     </PreferenceCategory>
     
@@ -27,19 +31,23 @@
         
         <EditTextPreference 
             android:key="pref_t1_mounted_food_cost"
-            android:title="@string/resource_food"/>
+            android:title="@string/resource_food"
+            android:defaultValue="150"/>
         
         <EditTextPreference 
             android:key="pref_t1_mounted_wood_cost"
-            android:title="@string/resource_wood"/>
+            android:title="@string/resource_wood"
+            android:defaultValue="110"/>
         
         <EditTextPreference 
             android:key="pref_t1_mounted_stone_cost"
-            android:title="@string/resource_stone"/>
+            android:title="@string/resource_stone"
+            android:defaultValue="50"/>
         
         <EditTextPreference 
             android:key="pref_t1_mounted_ore_cost"
-            android:title="@string/resource_ore"/>
+            android:title="@string/resource_ore"
+            android:defaultValue="200"/>
                 
     </PreferenceCategory>    
     
@@ -49,19 +57,23 @@
         
         <EditTextPreference 
             android:key="pref_t1_ranged_food_cost"
-            android:title="@string/resource_food"/>
+            android:title="@string/resource_food"
+            android:defaultValue="150"/>
         
         <EditTextPreference 
             android:key="pref_t1_ranged_wood_cost"
-            android:title="@string/resource_wood"/>
+            android:title="@string/resource_wood"
+            android:defaultValue="55"/>
         
         <EditTextPreference 
             android:key="pref_t1_ranged_stone_cost"
-            android:title="@string/resource_stone"/>
+            android:title="@string/resource_stone"
+            android:defaultValue="200"/>
         
         <EditTextPreference 
             android:key="pref_t1_ranged_ore_cost"
-            android:title="@string/resource_ore"/> 
+            android:title="@string/resource_ore"
+            android:defaultValue="100"/> 
                    
     </PreferenceCategory>        
 </PreferenceScreen>

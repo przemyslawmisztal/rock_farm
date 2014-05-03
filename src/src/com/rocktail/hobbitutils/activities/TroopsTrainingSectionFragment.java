@@ -95,7 +95,6 @@ public class TroopsTrainingSectionFragment extends Fragment
 		if(this._controller.ValidateUserInput(foodAmount, woodAmount, stoneAmount, oreAmount)) {
 			this._controller.handleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
 		}
-		
 	}
 	
 	private void updateView() {
@@ -117,12 +116,10 @@ public class TroopsTrainingSectionFragment extends Fragment
 
 	private void calculateUnits() {
 		this._controller.handleTroopsCalculations();
-		
 	}
 
 	@Override
 	public void update(Observable observable, Object data) {
 		updateView();
-		
 	}
 }
