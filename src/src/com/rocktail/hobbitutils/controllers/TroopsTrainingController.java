@@ -1,5 +1,7 @@
 package com.rocktail.hobbitutils.controllers;
 
+import android.content.Context;
+
 import com.rocktail.hobbitutils.TroopsTrainingCalculator;
 import com.rocktail.hobbitutils.utils.AppConfigReader;
 import com.rocktail.hobbitutilst.models.PlayerResources;
@@ -72,8 +74,8 @@ public class TroopsTrainingController {
 	/**
 	 * Delegates calculation task to proper service and updated model with the result
 	 */
-	public void handleTroopsCalculations() {
-		TroopsTrainingCalculator calc = new TroopsTrainingCalculator(this._playerResources, AppConfigReader.getHobbitConfiguration());
+	public void handleTroopsCalculations(Context context) {
+		TroopsTrainingCalculator calc = new TroopsTrainingCalculator(this._playerResources, AppConfigReader.getHobbitConfiguration(context));
 		
 		TroopsTrainingCalculationResult res = calc.CalculateBestT1TroopsTraining();
 		

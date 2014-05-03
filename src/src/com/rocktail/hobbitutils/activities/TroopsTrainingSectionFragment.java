@@ -115,7 +115,7 @@ public class TroopsTrainingSectionFragment extends Fragment
 	}
 
 	private void calculateUnits() {
-		this._controller.handleTroopsCalculations();
+		this._controller.handleTroopsCalculations(this.getActivity().getApplicationContext());
 	}
 
 	@Override
