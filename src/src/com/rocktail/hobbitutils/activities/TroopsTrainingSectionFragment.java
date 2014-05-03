@@ -98,12 +98,6 @@ public class TroopsTrainingSectionFragment extends Fragment
 		
 	}
 	
-	private void clearResults() {
-		this._t1FootUnitsAmount.setText("");
-		this._t1MountedUnitsAmount.setText("");
-		this._t1RangedUnitsAmount.setText("");
-	}
-	
 	private void updateView() {
 		this._foodAmount.setText(String.valueOf(this._playerResources.getFood()));
 		this._woodAmount.setText(String.valueOf(this._playerResources.getWood()));
