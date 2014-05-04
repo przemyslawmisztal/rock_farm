@@ -1,5 +1,7 @@
 package com.rocktail.hobbitutils.activities;
 
+import com.rocktail.hobbitutils.vos.ResourceType;
+
 import android.content.Context;
 import android.widget.EditText;
 import android.widget.GridLayout;
@@ -36,10 +38,28 @@ public class PlayerResourceView extends GridLayout
 	}
 
 	@Override
-	public void setResourceIcon(String iconName) {
+	public void setResourceIcon(ResourceType resourceType) {
+		String iconName = getIconResourceName(resourceType);
+		
 		int resId = getResources().getIdentifier(iconName, "drawable", "com.rocktail.hobbitutils");
 		this._tileIconImageView.setImageResource(resId);
 		
 	}
 
+	/**
+	 * Gets icon resource name so we can find and display correct icon 
+	 * @param resourceType
+	 * @return
+	 */
+	private String getIconResourceName(ResourceType resourceType) {
+		switch (resourceType) {
+			case Food: return "food";
+			case Wood: return "wood";
+			case Stone: return "stone";
+			case Ore: return "ore";
+			default: return null;
+		}
+	}
+
 }
+

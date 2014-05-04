@@ -1,5 +1,7 @@
 package com.rocktail.hobbitutils.activities;
 
+import com.rocktail.hobbitutils.vos.ResourceType;
+
 /**
  * Interface for view in player resources UI component
  * @author rocktail
@@ -22,5 +24,5 @@ public interface IPlayerResourceView {
 	 * Sets icon to display to the user
 	 * @param iconName
 	 */
-	void setResourceIcon(String iconName);
+	void setResourceIcon(ResourceType resourceType);
 }
