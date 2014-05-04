@@ -6,7 +6,7 @@
     android:columnCount="2" >
 
     <ImageView
-        android:id="@+id/iconImageView"
+        android:id="@+id/tileIconImageView"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_column="0"
@@ -19,7 +19,7 @@
         android:src="@drawable/food" />
 
     <TextView
-        android:id="@+id/resourceNameTextView"
+        android:id="@+id/tileTitleTextView"
         android:layout_column="1"
         android:layout_gravity="left|top"
         android:layout_marginLeft="4dp"
