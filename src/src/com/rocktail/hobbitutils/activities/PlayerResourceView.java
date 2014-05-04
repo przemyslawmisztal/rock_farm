@@ -44,24 +44,27 @@ public class PlayerResourceView extends GridLayout
 	}
 
 	/**
-	 * Sets name for resource
+	 * Enables view to display correct icon for provided {@link ResourceType}
 	 */
 	@Override
-	public void setResourceName(String resourceName) {
-		this._tileTitleTextView.setText(resourceName);
-		
-	}
-
-	/**
-	 * Enables view to display correct icon for provided resource type
-	 */
-	@Override
-	public void setResourceIcon(ResourceType resourceType) {
+	public void setResource(ResourceType resourceType) {
 		String iconName = getIconResourceName(resourceType);
 		
 		int resId = getResources().getIdentifier(iconName, "drawable", "com.rocktail.hobbitutils");
 		this._tileIconImageView.setImageResource(resId);
 		
+		this._tileTitleTextView.setText(getResourceName(resourceType));
+		
+	}
+
+	/**
+	 * Return resource name based on {@link ResourceType}
+	 * @param resourceType
+	 * @return
+	 */
+	private String getResourceName(ResourceType resourceType) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	/**

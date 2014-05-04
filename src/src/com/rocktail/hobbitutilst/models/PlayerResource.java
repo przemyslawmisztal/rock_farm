@@ -21,10 +21,10 @@ public class PlayerResource {
 	
 	/**
 	 * Sets {@link ResourceType}
-	 * @param _resourceType
+	 * @param resourceType
 	 */
-	public void setResourceType(ResourceType _resourceType) {
-		this._resourceType = _resourceType;
+	public void setResourceType(ResourceType resourceType) {
+		this._resourceType = resourceType;
 	}
 	
 	/**
@@ -37,9 +37,9 @@ public class PlayerResource {
 	
 	/**
 	 * Sets amount of current resource
-	 * @param _amount
+	 * @param amount
 	 */
-	public void setAmount(long _amount) {
-		this._amount = _amount;
+	public void setAmount(long amount) {
+		this._amount = amount;
 	}
 }

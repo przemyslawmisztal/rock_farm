@@ -15,14 +15,8 @@ public interface IPlayerResourceView {
 	void setAmount(long resourceAmount);
 	
 	/**
-	 * Sets component title that is meant to be displayed to the user
-	 * @param text
-	 */
-	void setResourceName(String text);
-	
-	/**
 	 * Sets icon to display to the user
 	 * @param iconName
 	 */
-	void setResourceIcon(ResourceType resourceType);
+	void setResource(ResourceType resourceType);
 }
