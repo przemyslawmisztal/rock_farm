@@ -11,7 +11,7 @@ import com.rocktail.hobbitutilst.models.PlayerResource;
  */
 public class PlayerResourcePresenter {
 	private IPlayerResourceView _view;
-	private PlayerResource _model;
+	private PlayerResource _playerResource;
 	private long _ZERO_AMOUNT = 0;
 	
 	/**
@@ -27,18 +27,18 @@ public class PlayerResourcePresenter {
 	 * @param amount
 	 */
 	public void SavePlayerResource(long amount) {
-		this._model.setAmount(amount);
+		this.getPlayerResource().setAmount(amount);
 	}
 	
 	/**
-	 * Initializes resource and view
+	 * Initialises resource and view
 	 * @param resourceType
 	 */
 	public void initPlayerResource(ResourceType resourceType) {
-		this._model = new PlayerResource();
+		this.setPlayerResource(new PlayerResource());
 		
-		this._model.setResourceType(resourceType);
-		this._model.setAmount(this._ZERO_AMOUNT);
+		this.getPlayerResource().setResourceType(resourceType);
+		this.getPlayerResource().setAmount(this._ZERO_AMOUNT);
 		
 		setView();
 	}
@@ -47,7 +47,23 @@ public class PlayerResourcePresenter {
 	 * Updates view with new values
 	 */
 	private void setView() {
-		this._view.setAmount(this._model.getAmount());
-		this._view.setResource(this._model.getResourceType());
+		this._view.setAmount(this.getPlayerResource().getAmount());
+		this._view.setResource(this.getPlayerResource().getResourceType());
+	}
+
+	/**
+	 * Gets {@link PlayerResource}
+	 * @return
+	 */
+	public PlayerResource getPlayerResource() {
+		return _playerResource;
+	}
+
+	/**
+	 * Sets {@link PlayerResource}
+	 * @param _playerResource
+	 */
+	private void setPlayerResource(PlayerResource _playerResource) {
+		this._playerResource = _playerResource;
 	}
 }
