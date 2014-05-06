@@ -21,18 +21,20 @@ public class AppConfigReader {
 	public static HobbitConfigurationVO getHobbitConfiguration(Context context) {
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
 		
-		long t1FootFood = sharedPreferences.getLong("pref_t1_foot_food_cost", 0);
-		long t1FootWood = sharedPreferences.getLong("pref_t1_foot_wood_cost", 0);
-		long t1FootStone = sharedPreferences.getLong("pref_t1_foot_stone_cost", 0);
-		long t1FootOre = sharedPreferences.getLong("pref_t1_foot_ore_cost", 0);
-		long t1RangedFood = sharedPreferences.getLong("pref_t1_ranged_food_cost", 0);
-		long t1RangedWood = sharedPreferences.getLong("pref_t1_ranged_wood_cost", 0);
-		long t1RangedStone = sharedPreferences.getLong("pref_t1_ranged_stone_cost", 0);
-		long t1RangedOre = sharedPreferences.getLong("pref_t1_ranged_ore_cost", 0);
-		long t1MountedFood = sharedPreferences.getLong("pref_t1_mounted_food_cost", 0);
-		long t1MountedWood = sharedPreferences.getLong("pref_t1_mounted_wood_cost", 0);
-		long t1MountedStone = sharedPreferences.getLong("pref_t1_mounted_stone_cost", 0);
-		long t1MountedOre = sharedPreferences.getLong("pref_t1_mounted_ore_cost", 0);
+		String def = "0";
+		
+		long t1FootFood = Long.parseLong(sharedPreferences.getString("pref_t1_foot_food_cost", def));
+		long t1FootWood = Long.parseLong(sharedPreferences.getString("pref_t1_foot_wood_cost", def));
+		long t1FootStone = Long.parseLong(sharedPreferences.getString("pref_t1_foot_stone_cost", def));
+		long t1FootOre = Long.parseLong(sharedPreferences.getString("pref_t1_foot_ore_cost", def));
+		long t1RangedFood = Long.parseLong(sharedPreferences.getString("pref_t1_ranged_food_cost", def));
+		long t1RangedWood = Long.parseLong(sharedPreferences.getString("pref_t1_ranged_wood_cost", def));
+		long t1RangedStone = Long.parseLong(sharedPreferences.getString("pref_t1_ranged_stone_cost", def));
+		long t1RangedOre = Long.parseLong(sharedPreferences.getString("pref_t1_ranged_ore_cost", def));
+		long t1MountedFood = Long.parseLong(sharedPreferences.getString("pref_t1_mounted_food_cost", def));
+		long t1MountedWood = Long.parseLong(sharedPreferences.getString("pref_t1_mounted_wood_cost", def));
+		long t1MountedStone = Long.parseLong(sharedPreferences.getString("pref_t1_mounted_stone_cost", def));
+		long t1MountedOre = Long.parseLong(sharedPreferences.getString("pref_t1_mounted_ore_cost", def));
 		
 		
 		HobbitUnitDefinitionVO tier1Foot = new HobbitUnitDefinitionVO(
