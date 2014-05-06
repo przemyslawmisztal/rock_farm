@@ -2,11 +2,11 @@ package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,15 +14,10 @@ public class MainActivity extends FragmentActivity {
 
     private static final int RESULT_SETTINGS = 0;
 
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    ViewPager mViewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_troop_training);
+        setContentView(R.layout.activity_main);
 
         //loading default preferences values with unit costs
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false);

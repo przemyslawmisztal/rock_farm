@@ -5,10 +5,9 @@ import java.util.Observer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -18,8 +17,7 @@ import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 public class TroopsTrainingSectionFragment extends Fragment 
-	implements Observer,
-	View.OnClickListener {
+	implements Observer {
 	/**
      * The fragment argument representing the section number for this
      * fragment.
@@ -37,15 +35,12 @@ public class TroopsTrainingSectionFragment extends Fragment
     private EditText _t1RangedUnitsAmount;
     private TroopsTrainingController _controller;
     private TroopsTrainingCalculationResult _calculationResult;
-    
-    public TroopsTrainingSectionFragment() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_troop_training, container, false);
-              
+    
         //lets find all user input fields here
         this._foodAmount = (EditText)rootView.findViewById(R.id.foodAmountEditText);
         this._woodAmount = (EditText)rootView.findViewById(R.id.woodAmountEditText);
@@ -55,22 +50,14 @@ public class TroopsTrainingSectionFragment extends Fragment
         this._t1FootUnitsAmount = (EditText)rootView.findViewById(R.id.resT1FootEditText);
         this._t1MountedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1MountedEditText);
         this._t1RangedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1RangedEditText);
-        
+
         //we need to find accept button and register listener to be able to catch user interaction
-        final ImageButton button = (ImageButton) rootView.findViewById(R.id.acceptButton);
-        button.setOnClickListener(this);
-        
-        _t1FootUnitsAmount.addTextChangedListener(new TextWatcher() {
-        		public void afterTextChanged(Editable s) {
-        			//TroopsTrainingSectionFragment.this.clearResults();
-        		}
-        	 
-        		public void beforeTextChanged(CharSequence s, int start, 
-        			int count, int after) {
-        		}
-        		public void onTextChanged(CharSequence s, int start,
-        			int before, int count) {
-        		}
+        final ImageButton button = (ImageButton) rootView.findViewById(R.id.accept_button);
+        button.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+            	readUserInput();
+        		calculateUnits();
+            }
         });
                
         //initialising model 
@@ -106,12 +93,6 @@ public class TroopsTrainingSectionFragment extends Fragment
 		this._t1FootUnitsAmount.setText(String.valueOf(this._calculationResult.getFootTroopsAmount()));
 		this._t1MountedUnitsAmount.setText(String.valueOf(this._calculationResult.getMountedTroopsAmount()));
 		this._t1RangedUnitsAmount.setText(String.valueOf(this._calculationResult.getRangedTroopsAmount()));
-	}
-
-	@Override
-	public void onClick(View v) {
-		readUserInput();
-		calculateUnits();
 	}
 
 	private void calculateUnits() {
