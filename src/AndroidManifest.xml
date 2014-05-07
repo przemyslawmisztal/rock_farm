@@ -30,6 +30,10 @@
             android:name="com.rocktail.hobbitutils.UnitCostSettingsFragment"
             android:label="@string/title_activity_unit_cost_settings_fragment" >
         </activity>
+        <activity
+            android:name="com.rocktail.hobbitutils.TroopsCalcResultActivity"
+            android:label="@string/title_activity_troops_calc_result" >
+        </activity>
     </application>
 
 </manifest>

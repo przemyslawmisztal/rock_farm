@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Hobbit Utils</string>
@@ -17,5 +18,6 @@
     <string name="pref_t1_mounted_unit_cost">T1 mounted unit cost</string>
     <string name="title_activity_unit_cost_settings_fragment">UnitCostSettingsFragment</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_troops_calc_result">TroopsCalcResultActivity</string>
 
 </resources>
