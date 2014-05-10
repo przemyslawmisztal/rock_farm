@@ -63,8 +63,18 @@ public class PlayerResourceView extends GridLayout
 	 * @return
 	 */
 	private String getResourceName(ResourceType resourceType) {
-		// TODO Auto-generated method stub
-		return null;
+		switch(resourceType) {
+		case Food: 
+			return getResources().getString(R.string.resource_food);
+		case Ore: 
+			return getResources().getString(R.string.resource_ore);
+		case Stone: 
+			return getResources().getString(R.string.resource_stone);
+		case Wood: 
+			return getResources().getString(R.string.resource_wood);			
+		default: 
+			return null;
+		}
 	}
 
 	/**
@@ -73,12 +83,17 @@ public class PlayerResourceView extends GridLayout
 	 * @return
 	 */
 	private String getIconResourceName(ResourceType resourceType) {
-		switch (resourceType) {
-			case Food: return "food";
-			case Wood: return "wood";
-			case Stone: return "stone";
-			case Ore: return "ore";
-			default: return null;
+		switch(resourceType) {
+		case Food: 
+			return getResources().getString(R.string.resource_food_icon);
+		case Ore: 
+			return getResources().getString(R.string.resource_ore_icon);
+		case Stone: 
+			return getResources().getString(R.string.resource_stone_icon);
+		case Wood: 
+			return getResources().getString(R.string.resource_wood_icon);			
+		default: 
+			return null;
 		}
 	}
 

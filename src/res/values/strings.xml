@@ -23,5 +23,9 @@
 	<string name="t1_foot_elves_icon_name">t1elvenfoot</string>
 	<string name="t1_ranged_elves_icon_name">t1elvenranged</string>
 	<string name="t1_mounted_elves_icon_name">t1elvenmounted</string>
+	<string name="resource_food_icon">food</string>
+    <string name="resource_wood_icon">wood</string>
+    <string name="resource_stone_icon">stone</string>
+    <string name="resource_ore_icon">ore</string>
 	
 </resources>

@@ -68,7 +68,7 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 			return getResources().getString(R.string.t1_mounted_elves);
 		default: 
 			return null;
-	}
+		}
 	}
 	
 	/**
