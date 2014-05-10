@@ -32,8 +32,8 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 		this._tileTitleTextView = (TextView)findViewById(R.id.tileTitleTextView);
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.rocktail.hobbitutils.activities.ITroopsAmountView#setUnitType(com.rocktail.hobbitutils.vos.UnitType)
+	/**
+	 * Sets {@link UnitType} that allows for displaying correct icon and text on this view
 	 */
 	@Override
 	public void setUnitType(UnitType unitType) {
@@ -43,11 +43,10 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 		this._tileIconImageView.setImageResource(resId);
 		
 		this._tileTitleTextView.setText(getUnitName(unitType));
-		
 	}
 
-	/* (non-Javadoc)
-	 * @see com.rocktail.hobbitutils.activities.ITroopsAmountView#setAmount(long)
+	/**
+	 * Sets amount of units to produce
 	 */
 	@Override
 	public void setAmount(long amount) {
@@ -60,8 +59,16 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 	 * @return
 	 */
 	private String getUnitName(UnitType unitType) {
-		// TODO Auto-generated method stub
-		return null;
+		switch(unitType) {
+		case Foot: 
+			return getResources().getString(R.string.t1_foot_elves);
+		case Ranged: 
+			return getResources().getString(R.string.t1_ranged_elves);
+		case Mounted: 
+			return getResources().getString(R.string.t1_mounted_elves);
+		default: 
+			return null;
+	}
 	}
 	
 	/**
@@ -70,7 +77,16 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 	 * @return
 	 */
 	private String getIconUnitName(UnitType unitType) {
-		// TODO Auto-generated method stub
-		return null;
+		switch(unitType) {
+			case Foot: 
+				return getResources().getString(R.string.t1_foot_elves_icon_name);
+			case Ranged: 
+				return getResources().getString(R.string.t1_ranged_elves_icon_name);
+			case Mounted: 
+				return getResources().getString(R.string.t1_mounted_elves_icon_name);
+			default: 
+				return null;
+		}
+		
 	}
 }

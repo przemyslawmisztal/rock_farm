@@ -3,7 +3,7 @@ package com.rocktail.hobbitutils.activities;
 import com.rocktail.hobbitutils.vos.UnitType;
 
 /**
- * Contract for view part of compound view displaying result o troop calculations
+ * Contract for compound view displaying result of troops calculations
  * @author rocktail
  *
  */
