@@ -36,8 +36,9 @@
         android:gravity="right"
         android:layout_row="1"
         android:ems="10"
-        android:text="@string/pref_t1_foot_cost"
+        android:text="@string/number_placeholder"
         android:textColor="#E7E7E7"
+        android:textSize="14sp"
         android:inputType="number" >
 
         <requestFocus />

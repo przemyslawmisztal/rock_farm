@@ -1,7 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/background_dark"
+    android:columnCount="2">
     
+    <ImageView
+        android:id="@+id/tileIconImageView"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_column="0"
+        android:layout_gravity="left|top"
+        android:layout_row="0"
+        android:layout_rowSpan="2"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:contentDescription="@string/resource_food"
+        android:src="@drawable/t1elvenfoot" />
 
+    <TextView
+        android:id="@+id/tileTitleTextView"
+        android:layout_column="1"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_row="0"
+        android:textColor="#F7CF84"
+        android:text="@string/t1_foot_elves" />
+
+    <TextView
+        android:id="@+id/unitAmountTextView"
+        android:width="80dp"
+        android:layout_column="1"
+        android:layout_gravity="right|bottom"
+        android:gravity="right"
+        android:layout_row="1"
+        android:ems="10"
+        android:text="@string/number_placeholder"
+        android:textColor="#E7E7E7"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:textSize="14sp">
+    </TextView>
 </GridLayout>
