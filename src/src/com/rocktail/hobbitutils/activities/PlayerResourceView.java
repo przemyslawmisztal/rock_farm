@@ -21,6 +21,7 @@ public class PlayerResourceView extends GridLayout
 	private EditText _resourceAmountEditText;
 	private ImageView _tileIconImageView;
 	
+	private ResourceType _resourceType;
 	/**
 	 * Creates instance of {@link PlayerResourceView} and finds needed controls
 	 * @param context
@@ -40,7 +41,6 @@ public class PlayerResourceView extends GridLayout
 	@Override
 	public void setAmount(long resourceAmount) {
 		this._resourceAmountEditText.setText(String.valueOf(resourceAmount));
-		
 	}
 
 	/**
@@ -48,6 +48,8 @@ public class PlayerResourceView extends GridLayout
 	 */
 	@Override
 	public void setResource(ResourceType resourceType) {
+		this._resourceType = resourceType;
+		
 		String iconName = getIconResourceName(resourceType);
 		
 		int resId = getResources().getIdentifier(iconName, "drawable", "com.rocktail.hobbitutils");
@@ -95,6 +97,22 @@ public class PlayerResourceView extends GridLayout
 		default: 
 			return null;
 		}
+	}
+
+	/**
+	 * Returns resource type of this tile 
+	 */
+	@Override
+	public ResourceType getResourceType() {
+		return this._resourceType;
+	}
+
+	/**
+	 * Return user entered amount
+	 */
+	@Override
+	public long getAmount() {
+		return Long.parseLong(this._resourceAmountEditText.getText().toString());
 	}
 
 }

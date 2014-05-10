@@ -19,4 +19,16 @@ public interface IPlayerResourceView {
 	 * @param iconName
 	 */
 	void setResource(ResourceType resourceType);
+	
+	/**
+	 * Gets {@link ResourceType} this compound view is representing
+	 * @return
+	 */
+	ResourceType getResourceType();
+	
+	/**
+	 * Gets user entered amount
+	 * @return
+	 */
+	long getAmount();
 }
