@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
+import com.rocktail.hobbitutils.vos.ResourceType;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
@@ -26,10 +27,10 @@ public class TroopsTrainingSectionFragment extends Fragment
 
     private PlayerResources _playerResources;
     private int _ZERO_VAL = 0;
-    private EditText _foodAmount;
-    private EditText _woodAmount;
-    private EditText _stoneAmount;
-    private EditText _oreAmount;
+    private PlayerResourceView _foodResource;
+    private PlayerResourceView _woodResource;
+    private PlayerResourceView _stoneResource;
+    private PlayerResourceView _oreResource;
     private EditText _t1FootUnitsAmount;
     private EditText _t1MountedUnitsAmount;
     private EditText _t1RangedUnitsAmount;
@@ -41,11 +42,11 @@ public class TroopsTrainingSectionFragment extends Fragment
             Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_troop_training, container, false);
     
-        //lets find all user input fields here
-        this._foodAmount = (EditText)rootView.findViewById(R.id.foodAmountEditText);
-        this._woodAmount = (EditText)rootView.findViewById(R.id.woodAmountEditText);
-        this._stoneAmount = (EditText)rootView.findViewById(R.id.stoneAmountEditText);
-        this._oreAmount = (EditText)rootView.findViewById(R.id.oreAmountEditText);
+        //lets find all controls here
+        this._foodResource = (PlayerResourceView)rootView.findViewById(R.id.foodPlayerResource);
+        this._woodResource = (PlayerResourceView)rootView.findViewById(R.id.woodPlayerResource);
+        this._stoneResource = (PlayerResourceView)rootView.findViewById(R.id.stonePlayerResource);
+        this._oreResource = (PlayerResourceView)rootView.findViewById(R.id.orePlayerResource);
         
         this._t1FootUnitsAmount = (EditText)rootView.findViewById(R.id.resT1FootEditText);
         this._t1MountedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1MountedEditText);
@@ -59,7 +60,9 @@ public class TroopsTrainingSectionFragment extends Fragment
         		calculateUnits();
             }
         });
-               
+        
+        this.initResourceCompoundViews();
+        
         //initialising model 
         this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
         this._calculationResult = new TroopsTrainingCalculationResult();
@@ -73,11 +76,17 @@ public class TroopsTrainingSectionFragment extends Fragment
         return rootView;
     }
 	
+    private void initResourceCompoundViews() {
+        this._foodResource.setResource(ResourceType.Food);
+        this._woodResource.setResource(ResourceType.Wood);
+        this._stoneResource.setResource(ResourceType.Stone);
+        this._oreResource.setResource(ResourceType.Ore);
+    }
 	private void readUserInput() {
-		long foodAmount = Long.parseLong(this._foodAmount.getText().toString());
-		long woodAmount = Long.parseLong(this._woodAmount.getText().toString());
-		long stoneAmount = Long.parseLong(this._stoneAmount.getText().toString());
-		long oreAmount = Long.parseLong(this._oreAmount.getText().toString());
+		long foodAmount = this._foodResource.getAmount();
+		long woodAmount = this._woodResource.getAmount();
+		long stoneAmount = this._stoneResource.getAmount();
+		long oreAmount = this._oreResource.getAmount();
 		
 		if(this._controller.ValidateUserInput(foodAmount, woodAmount, stoneAmount, oreAmount)) {
 			this._controller.handleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
@@ -85,10 +94,10 @@ public class TroopsTrainingSectionFragment extends Fragment
 	}
 	
 	private void updateView() {
-		this._foodAmount.setText(String.valueOf(this._playerResources.getFood()));
-		this._woodAmount.setText(String.valueOf(this._playerResources.getWood()));
-		this._stoneAmount.setText(String.valueOf(this._playerResources.getStone()));
-		this._oreAmount.setText(String.valueOf(this._playerResources.getOre()));
+		this._foodResource.setAmount(this._playerResources.getFood());
+		this._woodResource.setAmount(this._playerResources.getWood());
+		this._stoneResource.setAmount(this._playerResources.getStone());
+		this._oreResource.setAmount(this._playerResources.getOre());
 		
 		this._t1FootUnitsAmount.setText(String.valueOf(this._calculationResult.getFootTroopsAmount()));
 		this._t1MountedUnitsAmount.setText(String.valueOf(this._calculationResult.getMountedTroopsAmount()));

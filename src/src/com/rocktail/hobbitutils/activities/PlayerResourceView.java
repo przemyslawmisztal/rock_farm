@@ -4,10 +4,12 @@ import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.vos.ResourceType;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.view.LayoutInflater;
 
 /**
  * Compound view for player resource input 
@@ -26,8 +28,11 @@ public class PlayerResourceView extends GridLayout
 	 * Creates instance of {@link PlayerResourceView} and finds needed controls
 	 * @param context
 	 */
-	public PlayerResourceView(Context context) {
-		super(context);
+	public PlayerResourceView(Context context, AttributeSet attrs) {
+		super(context, attrs);
+		
+		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		inflater.inflate(R.layout.view_player_resource, this, true);
 		
 		//have to find all the controls that will be used 
 		this._tileIconImageView = (ImageView)findViewById(R.id.tileIconImageView);
