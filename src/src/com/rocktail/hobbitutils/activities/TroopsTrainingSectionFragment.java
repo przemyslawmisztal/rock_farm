@@ -19,13 +19,8 @@ import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 public class TroopsTrainingSectionFragment extends Fragment 
 	implements Observer {
-	/**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    public static final String ARG_SECTION_NUMBER = "section_number";
 
-    private PlayerResources _playerResources;
+	private PlayerResources _playerResources;
     private int _ZERO_VAL = 0;
     private PlayerResourceView _foodResource;
     private PlayerResourceView _woodResource;
@@ -82,6 +77,7 @@ public class TroopsTrainingSectionFragment extends Fragment
         this._stoneResource.setResource(ResourceType.Stone);
         this._oreResource.setResource(ResourceType.Ore);
     }
+    
 	private void readUserInput() {
 		long foodAmount = this._foodResource.getAmount();
 		long woodAmount = this._woodResource.getAmount();
