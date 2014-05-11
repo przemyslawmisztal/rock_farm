@@ -29,7 +29,7 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 		super(context, attrs);
 		
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		inflater.inflate(R.layout.activity_troops_calc_result, this, true);
+		inflater.inflate(R.layout.activity_main, this, true);
 		
 		//have to find all the controls that will be used 
 		this._tileIconImageView = (ImageView)findViewById(R.id.tileIconImageView);
