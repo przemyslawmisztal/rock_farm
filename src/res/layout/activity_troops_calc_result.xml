@@ -10,34 +10,4 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".TroopsCalcResultActivity" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="4dp"
-        android:text="@string/troops_calc_result_caption"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#FFFFFF" />
-
-    <com.rocktail.hobbitutils.activities.TroopsAmountView
-	    android:id="@+id/footTroopsAmount"
-	    android:layout_width="0dp"
-	    android:layout_height="72dp"
-	    android:layout_weight="1"
-	    android:layout_marginBottom="10dp"/>  
-	    
-    <com.rocktail.hobbitutils.activities.TroopsAmountView
-	    android:id="@+id/rangedTroopsAmount"
-	    android:layout_width="0dp"
-	    android:layout_height="72dp"
-	    android:layout_weight="1"
-	    android:layout_marginBottom="10dp"/>
-      
-	<com.rocktail.hobbitutils.activities.TroopsAmountView
-	    android:id="@+id/mountedTroopsAmount"
-	    android:layout_width="0dp"
-	    android:layout_height="72dp"
-	    android:layout_weight="1"
-	    android:layout_marginBottom="10dp"/>  
 </LinearLayout>

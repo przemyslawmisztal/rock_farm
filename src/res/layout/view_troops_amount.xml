@@ -15,7 +15,7 @@
         android:layout_rowSpan="2"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
-        android:contentDescription="@string/resource_food"
+        android:contentDescription="@string/t1_foot_elves"
         android:src="@drawable/t1elvenfoot" />
 
     <TextView
