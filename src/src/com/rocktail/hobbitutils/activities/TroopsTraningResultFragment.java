@@ -1,7 +1,6 @@
 package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
-import com.rocktail.hobbitutils.controllers.ITroopsAmountPresenter;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,12 +13,11 @@ import android.view.ViewGroup;
  * @author rocktail
  *
  */
-public class TroopsTraningResultFragment extends Fragment {
+public class TroopsTraningResultFragment extends Fragment implements ITroopsTrainingResultView {
 
 	private ITroopsAmountView _footUnits;
 	private ITroopsAmountView _rangedUnits;
 	private ITroopsAmountView _mountedUnits;
-	private ITroopsAmountPresenter _presenter;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,33 +33,26 @@ public class TroopsTraningResultFragment extends Fragment {
 		return rootView;
 	}
 	
-	/**
-	 * Sets presenter for this fragment
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingResultView#setFootUnits(long)
 	 */
-	public void setPresenter(ITroopsAmountPresenter presenter) {
-		this._presenter = presenter;
-	}
-
-	/**
-	 * Sets foot units amount
-	 * @param _footUnits
-	 */
+	@Override
 	public void setFootUnits(long amount) {
 		this._footUnits.setAmount(amount);
 	}
 
-	/**
-	 * Sets ranged units amount
-	 * @param _rangedUnits
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingResultView#setRangedUnits(long)
 	 */
+	@Override
 	public void setRangedUnits(long amount) {
 		this._rangedUnits.setAmount(amount);
 	}
 
-	/**
-	 * Sets mounted units amount
-	 * @param amount
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingResultView#setMountedUnits(long)
 	 */
+	@Override
 	public void setMountedUnits(long amount) {
 		this._mountedUnits.setAmount(amount);
 	}

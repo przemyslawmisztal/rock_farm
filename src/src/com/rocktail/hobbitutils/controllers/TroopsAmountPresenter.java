@@ -1,6 +1,6 @@
 package com.rocktail.hobbitutils.controllers;
 
-import com.rocktail.hobbitutils.activities.ITroopsAmountView;
+import com.rocktail.hobbitutils.activities.ITroopsTrainingResultView;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 /**
@@ -10,13 +10,13 @@ import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
  */
 public class TroopsAmountPresenter implements ITroopsAmountPresenter {
 
-	private ITroopsAmountView _view;
+	private ITroopsTrainingResultView _view;
 	
 	/**
 	 * Creating presenter requires passing view
 	 * @param view
 	 */
-	public TroopsAmountPresenter(ITroopsAmountView view) {
+	public TroopsAmountPresenter(ITroopsTrainingResultView view) {
 		this._view = view;
 	}
 	
@@ -25,6 +25,8 @@ public class TroopsAmountPresenter implements ITroopsAmountPresenter {
 	 */
 	@Override
 	public void init(TroopsTrainingCalculationResult result) {
-		
+		this._view.setFootUnits(result.getFootTroopsAmount());
+		this._view.setRangedUnits(result.getRangedTroopsAmount());
+		this._view.setMountedUnits(result.getMountedTroopsAmount());
 	}
 }
