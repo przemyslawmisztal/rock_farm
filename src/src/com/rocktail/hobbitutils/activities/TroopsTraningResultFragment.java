@@ -14,12 +14,20 @@ import android.view.ViewGroup;
  */
 public class TroopsTraningResultFragment extends Fragment {
 
+	private ITroopsAmountView _footUnits;
+	private ITroopsAmountView _rangedUnits;
+	private ITroopsAmountView _mountedUnits;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
 		View rootView = inflater.inflate(R.layout.fragment_troops_traning_result,
 				container, false);
+		
+		this._footUnits = (ITroopsAmountView)rootView.findViewById(R.id.t1footUnits);
+		this._mountedUnits = (ITroopsAmountView)rootView.findViewById(R.id.t1mountedUnits);
+		this._rangedUnits = (ITroopsAmountView)rootView.findViewById(R.id.t1rangedUnits);
 		
 		return rootView;
 	}

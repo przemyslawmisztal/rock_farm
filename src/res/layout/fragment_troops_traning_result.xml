@@ -1,14 +1,37 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
     tools:context=".TroopsTraningResultFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/troops_calc_result_caption" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="center"
+        android:text="@string/troops_calc_result_caption"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#FFFFFF" />
+    
+    <com.rocktail.hobbitutils.activities.TroopsAmountView
+        android:id="@+id/t1rangedUnits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp" />
 
-</FrameLayout>
+    <com.rocktail.hobbitutils.activities.TroopsAmountView
+        android:id="@+id/t1mountedUnits"
+     	android:layout_width="wrap_content"
+     	android:layout_height="wrap_content"
+     	android:layout_marginBottom="10dp" />
+
+    <com.rocktail.hobbitutils.activities.TroopsAmountView
+        android:id="@+id/t1footUnits"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp" />
+            
+</LinearLayout>
