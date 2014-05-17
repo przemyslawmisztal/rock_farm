@@ -26,9 +26,6 @@ public class TroopsTrainingSectionFragment extends Fragment
     private PlayerResourceView _woodResource;
     private PlayerResourceView _stoneResource;
     private PlayerResourceView _oreResource;
-    private EditText _t1FootUnitsAmount;
-    private EditText _t1MountedUnitsAmount;
-    private EditText _t1RangedUnitsAmount;
     private TroopsTrainingController _controller;
     private TroopsTrainingCalculationResult _calculationResult;
 
@@ -42,10 +39,6 @@ public class TroopsTrainingSectionFragment extends Fragment
         this._woodResource = (PlayerResourceView)rootView.findViewById(R.id.woodPlayerResource);
         this._stoneResource = (PlayerResourceView)rootView.findViewById(R.id.stonePlayerResource);
         this._oreResource = (PlayerResourceView)rootView.findViewById(R.id.orePlayerResource);
-        
-        this._t1FootUnitsAmount = (EditText)rootView.findViewById(R.id.resT1FootEditText);
-        this._t1MountedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1MountedEditText);
-        this._t1RangedUnitsAmount = (EditText)rootView.findViewById(R.id.resT1RangedEditText);
 
         //we need to find accept button and register listener to be able to catch user interaction
         final ImageButton button = (ImageButton) rootView.findViewById(R.id.accept_button);
@@ -94,10 +87,6 @@ public class TroopsTrainingSectionFragment extends Fragment
 		this._woodResource.setAmount(this._playerResources.getWood());
 		this._stoneResource.setAmount(this._playerResources.getStone());
 		this._oreResource.setAmount(this._playerResources.getOre());
-		
-		this._t1FootUnitsAmount.setText(String.valueOf(this._calculationResult.getFootTroopsAmount()));
-		this._t1MountedUnitsAmount.setText(String.valueOf(this._calculationResult.getMountedTroopsAmount()));
-		this._t1RangedUnitsAmount.setText(String.valueOf(this._calculationResult.getRangedTroopsAmount()));
 	}
 
 	private void calculateUnits() {
