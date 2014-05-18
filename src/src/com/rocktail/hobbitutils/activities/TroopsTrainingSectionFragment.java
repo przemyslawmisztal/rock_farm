@@ -5,11 +5,11 @@ import java.util.Observer;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import com.rocktail.hobbitutils.R;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
@@ -87,8 +87,20 @@ public class TroopsTrainingSectionFragment extends Fragment
 		this._woodResource.setAmount(this._playerResources.getWood());
 		this._stoneResource.setAmount(this._playerResources.getStone());
 		this._oreResource.setAmount(this._playerResources.getOre());
+		
+		createResultFragment(this._controller.getTroopsTrainingCalculationResult());
 	}
 
+	private void createResultFragment(TroopsTrainingCalculationResult res) {
+		Fragment newFragment = new TroopsTraningResultFragment();
+		FragmentTransaction transaction = getFragmentManager().beginTransaction();
+		
+		transaction.replace(R.id.linear_layout_id, newFragment);
+		transaction.addToBackStack(null);
+		
+		transaction.commit();
+	}
+	
 	private void calculateUnits() {
 		this._controller.handleTroopsCalculations(this.getActivity().getApplicationContext());
 	}
