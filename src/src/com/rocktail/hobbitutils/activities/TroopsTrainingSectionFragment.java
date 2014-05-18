@@ -92,7 +92,7 @@ public class TroopsTrainingSectionFragment extends Fragment
 	}
 
 	private void createResultFragment(TroopsTrainingCalculationResult res) {
-		Fragment newFragment = new TroopsTraningResultFragment();
+		Fragment newFragment = new TroopsTrainingResultFragment();
 		FragmentTransaction transaction = getFragmentManager().beginTransaction();
 		
 		transaction.replace(R.id.linear_layout_id, newFragment);

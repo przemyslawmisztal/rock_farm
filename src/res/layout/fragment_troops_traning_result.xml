@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    tools:context=".TroopsTraningResultFragment" >
+    tools:context=".TroopsTrainingResultFragment" >
 
     <TextView
         android:layout_width="wrap_content"

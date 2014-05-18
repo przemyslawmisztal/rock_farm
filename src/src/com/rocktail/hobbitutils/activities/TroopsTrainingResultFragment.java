@@ -13,7 +13,7 @@ import android.view.ViewGroup;
  * @author rocktail
  *
  */
-public class TroopsTraningResultFragment extends Fragment implements ITroopsTrainingResultView {
+public class TroopsTrainingResultFragment extends Fragment implements ITroopsTrainingResultView {
 
 	private ITroopsAmountView _footUnits;
 	private ITroopsAmountView _rangedUnits;
