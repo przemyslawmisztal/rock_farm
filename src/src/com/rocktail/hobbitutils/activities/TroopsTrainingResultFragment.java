@@ -31,7 +31,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 		this._rangedUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1mountedUnits));
 		this._mountedUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1rangedUnits));
 		
-		//initializing unit amounts compound views so we have correct text and icons loaded
+		//Initialising unit amounts compound views so we have correct text and icons loaded
 		this._footUnits.setUnitType(UnitType.Foot);
 		this._mountedUnits.setUnitType(UnitType.Mounted);
 		this._rangedUnits.setUnitType(UnitType.Ranged);
@@ -43,6 +43,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	 */
 	@Override
 	public void setFootUnits(long amount) {
+		if (this._footUnits != null)
 			this._footUnits.setAmount(amount);
 	}
 
@@ -51,6 +52,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	 */
 	@Override
 	public void setRangedUnits(long amount) {
+		if (this._rangedUnits != null)
 			this._rangedUnits.setAmount(amount);
 	}
 
@@ -59,6 +61,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	 */
 	@Override
 	public void setMountedUnits(long amount) {
+		if (this._mountedUnits != null)
 			this._mountedUnits.setAmount(amount);
 	}
 }

@@ -1,6 +1,7 @@
 package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 import android.app.FragmentManager;
@@ -28,7 +29,9 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         
         TroopsTrainingSectionFragment inputFragment = new TroopsTrainingSectionFragment();
-        inputFragment.setMainActivity(this);
+        
+        TroopsTrainingPresenter presenter = new TroopsTrainingPresenter(this, inputFragment);
+        inputFragment.addPresenter(presenter);
         fragmentTransaction.add(R.id.pager, inputFragment);
         fragmentTransaction.commit();
         
@@ -46,7 +49,7 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 		
 		fragmentTransaction.replace(R.id.pager, resultFragment);
 		fragmentTransaction.addToBackStack(null);
-			
+
 		fragmentTransaction.commit();
 		
 		//passing calculated units amounts to fragment - it will be displayed to the user

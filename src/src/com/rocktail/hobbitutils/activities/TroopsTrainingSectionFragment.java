@@ -1,8 +1,5 @@
 package com.rocktail.hobbitutils.activities;
 
-import java.util.Observable;
-import java.util.Observer;
-
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,23 +8,17 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import com.rocktail.hobbitutils.R;
-import com.rocktail.hobbitutils.controllers.TroopsTrainingController;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter;
 import com.rocktail.hobbitutils.vos.ResourceType;
-import com.rocktail.hobbitutilst.models.PlayerResources;
-import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 public class TroopsTrainingSectionFragment extends Fragment 
-	implements Observer {
+	implements ITroopsTrainingView {
 
-	private PlayerResources _playerResources;
-    private int _ZERO_VAL = 0;
     private PlayerResourceView _foodResource;
     private PlayerResourceView _woodResource;
     private PlayerResourceView _stoneResource;
     private PlayerResourceView _oreResource;
-    private TroopsTrainingController _controller;
-    private TroopsTrainingCalculationResult _calculationResult;
-    private IMainActivity _mainActivity;
+    private TroopsTrainingPresenter _presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,68 +35,67 @@ public class TroopsTrainingSectionFragment extends Fragment
         final ImageButton button = (ImageButton) rootView.findViewById(R.id.accept_button);
         button.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-            	readUserInput();
-        		calculateUnits();
+            	acceptButtonClicked();
             }
         });
         
         this.initResourceCompoundViews();
         
-        //initialising model 
-        this._playerResources = new PlayerResources(this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL, this._ZERO_VAL);
-        this._calculationResult = new TroopsTrainingCalculationResult();
-        
-        //registering this view as observer
-        this._playerResources.addObserver(this);
-        this._calculationResult.addObserver(this);
-        
         //we initialise controller and pass resources object
-        this._controller = new TroopsTrainingController(this._playerResources, this._calculationResult);
         return rootView;
     }
 	
+    private void acceptButtonClicked() {
+    	this._presenter.calculateResult(this.getActivity().getApplicationContext());
+    }
+    /* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingView#addPresenter(com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter)
+	 */
+    @Override
+	public void addPresenter(TroopsTrainingPresenter presenter) {
+    	this._presenter = presenter;
+    }
+    
+    /**
+     * Initialises resources compound views so they display correct text and icons
+     */
     private void initResourceCompoundViews() {
         this._foodResource.setResource(ResourceType.Food);
         this._woodResource.setResource(ResourceType.Wood);
         this._stoneResource.setResource(ResourceType.Stone);
         this._oreResource.setResource(ResourceType.Ore);
     }
-    
-	private void readUserInput() {
-		long foodAmount = this._foodResource.getAmount();
-		long woodAmount = this._woodResource.getAmount();
-		long stoneAmount = this._stoneResource.getAmount();
-		long oreAmount = this._oreResource.getAmount();
-		
-		if(this._controller.ValidateUserInput(foodAmount, woodAmount, stoneAmount, oreAmount)) {
-			this._controller.handleUserInput(foodAmount, woodAmount, stoneAmount, oreAmount);
-		}
-	}
-	
-	private void updateView() {
-		this._foodResource.setAmount(this._playerResources.getFood());
-		this._woodResource.setAmount(this._playerResources.getWood());
-		this._stoneResource.setAmount(this._playerResources.getStone());
-		this._oreResource.setAmount(this._playerResources.getOre());
-		
-		this._mainActivity.createResultFragment(this._controller.getTroopsTrainingCalculationResult());
-	}
-	
-	private void calculateUnits() {
-		this._controller.handleTroopsCalculations(this.getActivity().getApplicationContext());
+
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingView#getFoodResource()
+	 */
+	@Override
+	public long getFoodResource() {
+		return _foodResource.getAmount();
 	}
 
-	@Override
-	public void update(Observable observable, Object data) {
-		updateView();
-	}
-	
-	/**
-	 * Sets main activity we need to inform application that result can be displayed
-	 * @param _mainActivity
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingView#getWoodResource()
 	 */
-	public void setMainActivity(IMainActivity _mainActivity) {
-		this._mainActivity = _mainActivity;
+	@Override
+	public long getWoodResource() {
+		return _woodResource.getAmount();
+	}
+
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingView#getStoneResource()
+	 */
+	@Override
+	public long getStoneResource() {
+		return _stoneResource.getAmount();
+	}
+
+	/* (non-Javadoc)
+	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingView#getOreResource()
+	 */
+	@Override
+	public long getOreResource() {
+		return _oreResource.getAmount();
 	}
 }
 
