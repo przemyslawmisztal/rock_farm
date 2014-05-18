@@ -50,9 +50,9 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 		fragmentTransaction.commit();
 		
 		//passing calculated units amounts to fragment - it will be displayed to the user
-		//((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getFootTroopsAmount());
-		//((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getMountedTroopsAmount());
-		//((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getRangedTroopsAmount());
+		((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getFootTroopsAmount());
+		((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getMountedTroopsAmount());
+		((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getRangedTroopsAmount());
 	}
 	
     @Override

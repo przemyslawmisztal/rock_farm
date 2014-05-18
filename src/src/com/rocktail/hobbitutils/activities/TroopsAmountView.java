@@ -6,7 +6,6 @@ import com.rocktail.hobbitutils.vos.UnitType;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -29,11 +28,11 @@ public class TroopsAmountView extends GridLayout implements ITroopsAmountView {
 		super(context, attrs);
 		
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		inflater.inflate(R.layout.activity_main, this, true);
+		inflater.inflate(R.layout.view_troops_amount, this, true);
 		
 		//have to find all the controls that will be used 
 		this._tileIconImageView = (ImageView)findViewById(R.id.tileUnitIconImageView);
-		this._unitAmountTextView = (EditText)findViewById(R.id.unitAmountTextView);
+		this._unitAmountTextView = (TextView)findViewById(R.id.unitAmountTextView);
 		this._tileTitleTextView = (TextView)findViewById(R.id.tileTitleTextView);
 	}
 	

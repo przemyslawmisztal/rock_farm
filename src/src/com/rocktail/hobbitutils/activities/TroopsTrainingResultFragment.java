@@ -1,6 +1,7 @@
 package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
+import com.rocktail.hobbitutils.vos.UnitType;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -30,6 +31,10 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 		this._rangedUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1mountedUnits));
 		this._mountedUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1rangedUnits));
 		
+		//initializing unit amounts compound views so we have correct text and icons loaded
+		this._footUnits.setUnitType(UnitType.Foot);
+		this._mountedUnits.setUnitType(UnitType.Mounted);
+		this._rangedUnits.setUnitType(UnitType.Ranged);
 		return rootView;
 	}
 	
@@ -38,7 +43,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	 */
 	@Override
 	public void setFootUnits(long amount) {
-		this._footUnits.setAmount(amount);
+			this._footUnits.setAmount(amount);
 	}
 
 	/* (non-Javadoc)
@@ -46,7 +51,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	 */
 	@Override
 	public void setRangedUnits(long amount) {
-		this._rangedUnits.setAmount(amount);
+			this._rangedUnits.setAmount(amount);
 	}
 
 	/* (non-Javadoc)
@@ -54,6 +59,6 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	 */
 	@Override
 	public void setMountedUnits(long amount) {
-		this._mountedUnits.setAmount(amount);
+			this._mountedUnits.setAmount(amount);
 	}
 }
