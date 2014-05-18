@@ -3,9 +3,8 @@ package com.rocktail.hobbitutils.activities;
 import java.util.Observable;
 import java.util.Observer;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +27,7 @@ public class TroopsTrainingSectionFragment extends Fragment
     private PlayerResourceView _oreResource;
     private TroopsTrainingController _controller;
     private TroopsTrainingCalculationResult _calculationResult;
+    private IMainActivity _mainActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,17 +88,7 @@ public class TroopsTrainingSectionFragment extends Fragment
 		this._stoneResource.setAmount(this._playerResources.getStone());
 		this._oreResource.setAmount(this._playerResources.getOre());
 		
-		createResultFragment(this._controller.getTroopsTrainingCalculationResult());
-	}
-
-	private void createResultFragment(TroopsTrainingCalculationResult res) {
-		Fragment newFragment = new TroopsTrainingResultFragment();
-		FragmentTransaction transaction = getFragmentManager().beginTransaction();
-		
-		transaction.replace(R.id.linear_layout_id, newFragment);
-		transaction.addToBackStack(null);
-		
-		transaction.commit();
+		this._mainActivity.createResultFragment(this._controller.getTroopsTrainingCalculationResult());
 	}
 	
 	private void calculateUnits() {
@@ -109,4 +99,13 @@ public class TroopsTrainingSectionFragment extends Fragment
 	public void update(Observable observable, Object data) {
 		updateView();
 	}
+	
+	/**
+	 * Sets main activity we need to inform application that result can be displayed
+	 * @param _mainActivity
+	 */
+	public void setMainActivity(IMainActivity _mainActivity) {
+		this._mainActivity = _mainActivity;
+	}
 }
+

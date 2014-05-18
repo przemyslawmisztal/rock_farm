@@ -6,7 +6,7 @@
     android:columnCount="2">
     
     <ImageView
-        android:id="@+id/tileIconImageView"
+        android:id="@+id/tileUnitIconImageView"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_column="0"

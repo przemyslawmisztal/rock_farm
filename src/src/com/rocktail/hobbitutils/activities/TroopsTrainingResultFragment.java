@@ -2,8 +2,8 @@ package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +15,20 @@ import android.view.ViewGroup;
  */
 public class TroopsTrainingResultFragment extends Fragment implements ITroopsTrainingResultView {
 
-	private ITroopsAmountView _footUnits;
-	private ITroopsAmountView _rangedUnits;
-	private ITroopsAmountView _mountedUnits;
+	private TroopsAmountView _footUnits;
+	private TroopsAmountView _rangedUnits;
+	private TroopsAmountView _mountedUnits;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		View rootView = inflater.inflate(R.layout.fragment_troops_traning_result,
+		View rootView = inflater.inflate(R.layout.fragment_troops_training_result,
 				container, false);
 		
-		this._footUnits = ((ITroopsAmountView)rootView.findViewById(R.id.t1footUnits));
-		this._rangedUnits = ((ITroopsAmountView)rootView.findViewById(R.id.t1mountedUnits));
-		this._mountedUnits = ((ITroopsAmountView)rootView.findViewById(R.id.t1rangedUnits));
+		this._footUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1footUnits));
+		this._rangedUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1mountedUnits));
+		this._mountedUnits = ((TroopsAmountView)rootView.findViewById(R.id.t1rangedUnits));
 		
 		return rootView;
 	}

@@ -4,12 +4,5 @@
     android:id="@+id/pager"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity" >
-    
-    <fragment
-        android:name="com.rocktail.hobbitutils.activities.TroopsTrainingSectionFragment"
-        android:id="@+id/fragment_troop_training"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-        
+    tools:context=".MainActivity" >  
 </LinearLayout>
