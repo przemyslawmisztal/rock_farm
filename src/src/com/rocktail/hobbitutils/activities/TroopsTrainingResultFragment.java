@@ -43,6 +43,8 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	
 	@Override
 	public void onStart() {
+		super.onStart();
+		
 		this._presenter.showResult();
 	}
 	/* (non-Javadoc)

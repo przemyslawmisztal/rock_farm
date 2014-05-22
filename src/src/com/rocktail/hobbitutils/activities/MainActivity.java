@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
         TroopsTrainingResourcesFragment inputFragment = new TroopsTrainingResourcesFragment();
         TroopsTrainingResourcesPresenter presenter = new TroopsTrainingResourcesPresenter(this, inputFragment);
         inputFragment.setPresenter(presenter);
+        
         fragmentTransaction.add(R.id.pager, inputFragment);
         fragmentTransaction.commit();        
     }
@@ -46,20 +47,13 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 		
 		TroopsTrainingResultFragment resultFragment = new TroopsTrainingResultFragment();
 
-		TroopsTrainingResultPresenter presenter = new TroopsTrainingResultPresenter(resultFragment);
+		TroopsTrainingResultPresenter presenter = new TroopsTrainingResultPresenter(resultFragment, res);
 		resultFragment.setPresenter(presenter);
 		
-		fragmentTransaction.replace(R.id.pager, resultFragment, "result");
+		fragmentTransaction.replace(R.id.pager, resultFragment);
 		fragmentTransaction.addToBackStack(null);
 
 		fragmentTransaction.commit();
-		
-		//ITroopsTrainingResultView foundFragment = (ITroopsTrainingResultView)getFragmentManager().findFragmentByTag("result");
-				
-		//passing calculated units amounts to fragment - it will be displayed to the user
-		//foundFragment.setFootUnits(res.getFootTroopsAmount());
-		//foundFragment.setFootUnits(res.getMountedTroopsAmount());
-		//foundFragment.setFootUnits(res.getRangedTroopsAmount());
 	}
 	
     @Override

@@ -16,8 +16,11 @@ public class TroopsTrainingResultPresenter implements ITroopsTrainingResultPrese
 	 * Creating presenter requires passing view
 	 * @param view
 	 */
-	public TroopsTrainingResultPresenter(ITroopsTrainingResultView view) {
+	public TroopsTrainingResultPresenter(
+			ITroopsTrainingResultView view,
+			TroopsTrainingCalculationResult result) {
 		this._view = view;
+		this._troopsTrainingCalculationResult = result;
 	}
 	
 	/**
@@ -27,13 +30,5 @@ public class TroopsTrainingResultPresenter implements ITroopsTrainingResultPrese
 		this._view.setFootUnits(this._troopsTrainingCalculationResult.getFootTroopsAmount());
 		this._view.setRangedUnits(this._troopsTrainingCalculationResult.getRangedTroopsAmount());
 		this._view.setMountedUnits(this._troopsTrainingCalculationResult.getMountedTroopsAmount());
-	}
-	
-	/* (non-Javadoc)
-	 * @see com.rocktail.hobbitutils.controllers.ITroopsAmountPresenter#init(com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult)
-	 */
-	@Override
-	public void init(TroopsTrainingCalculationResult result) {
-		this._troopsTrainingCalculationResult = result;
 	}
 }
