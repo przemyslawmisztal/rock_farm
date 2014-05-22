@@ -1,5 +1,7 @@
 package com.rocktail.hobbitutils.activities;
 
+import com.rocktail.hobbitutils.controllers.ITroopsTrainingResultPresenter;
+
 public interface ITroopsTrainingResultView {
 	/**
 	 * Sets foot units amount
@@ -19,4 +21,9 @@ public interface ITroopsTrainingResultView {
 	 */
 	public abstract void setMountedUnits(long amount);
 
+	/**
+	 * Sets presenter for troops training result compound view
+	 * @param presenter
+	 */
+	public abstract void setPresenter(ITroopsTrainingResultPresenter presenter);
 }

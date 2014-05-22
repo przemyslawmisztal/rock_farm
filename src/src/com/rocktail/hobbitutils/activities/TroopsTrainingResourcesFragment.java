@@ -8,17 +8,17 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import com.rocktail.hobbitutils.R;
-import com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingResourcesPresenter;
 import com.rocktail.hobbitutils.vos.ResourceType;
 
-public class TroopsTrainingSectionFragment extends Fragment 
+public class TroopsTrainingResourcesFragment extends Fragment 
 	implements ITroopsTrainingView {
 
     private PlayerResourceView _foodResource;
     private PlayerResourceView _woodResource;
     private PlayerResourceView _stoneResource;
     private PlayerResourceView _oreResource;
-    private TroopsTrainingPresenter _presenter;
+    private TroopsTrainingResourcesPresenter _presenter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,7 +52,7 @@ public class TroopsTrainingSectionFragment extends Fragment
 	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingView#addPresenter(com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter)
 	 */
     @Override
-	public void addPresenter(TroopsTrainingPresenter presenter) {
+	public void setPresenter(TroopsTrainingResourcesPresenter presenter) {
     	this._presenter = presenter;
     }
     

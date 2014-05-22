@@ -1,7 +1,8 @@
 package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
-import com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingResultPresenter;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingResourcesPresenter;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
 import android.app.FragmentManager;
@@ -28,13 +29,11 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         
-        TroopsTrainingSectionFragment inputFragment = new TroopsTrainingSectionFragment();
-        
-        TroopsTrainingPresenter presenter = new TroopsTrainingPresenter(this, inputFragment);
-        inputFragment.addPresenter(presenter);
+        TroopsTrainingResourcesFragment inputFragment = new TroopsTrainingResourcesFragment();
+        TroopsTrainingResourcesPresenter presenter = new TroopsTrainingResourcesPresenter(this, inputFragment);
+        inputFragment.setPresenter(presenter);
         fragmentTransaction.add(R.id.pager, inputFragment);
-        fragmentTransaction.commit();
-        
+        fragmentTransaction.commit();        
     }
 
 	/* (non-Javadoc)
@@ -46,16 +45,21 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 		
 		TroopsTrainingResultFragment resultFragment = new TroopsTrainingResultFragment();
+
+		TroopsTrainingResultPresenter presenter = new TroopsTrainingResultPresenter(resultFragment);
+		resultFragment.setPresenter(presenter);
 		
-		fragmentTransaction.replace(R.id.pager, resultFragment);
+		fragmentTransaction.replace(R.id.pager, resultFragment, "result");
 		fragmentTransaction.addToBackStack(null);
 
 		fragmentTransaction.commit();
 		
+		//ITroopsTrainingResultView foundFragment = (ITroopsTrainingResultView)getFragmentManager().findFragmentByTag("result");
+				
 		//passing calculated units amounts to fragment - it will be displayed to the user
-		((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getFootTroopsAmount());
-		((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getMountedTroopsAmount());
-		((ITroopsTrainingResultView)resultFragment).setFootUnits(res.getRangedTroopsAmount());
+		//foundFragment.setFootUnits(res.getFootTroopsAmount());
+		//foundFragment.setFootUnits(res.getMountedTroopsAmount());
+		//foundFragment.setFootUnits(res.getRangedTroopsAmount());
 	}
 	
     @Override

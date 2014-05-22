@@ -1,6 +1,7 @@
 package com.rocktail.hobbitutils.activities;
 
 import com.rocktail.hobbitutils.R;
+import com.rocktail.hobbitutils.controllers.ITroopsTrainingResultPresenter;
 import com.rocktail.hobbitutils.vos.UnitType;
 
 import android.app.Fragment;
@@ -19,6 +20,7 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	private TroopsAmountView _footUnits;
 	private TroopsAmountView _rangedUnits;
 	private TroopsAmountView _mountedUnits;
+	private ITroopsTrainingResultPresenter _presenter;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,9 +37,14 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 		this._footUnits.setUnitType(UnitType.Foot);
 		this._mountedUnits.setUnitType(UnitType.Mounted);
 		this._rangedUnits.setUnitType(UnitType.Ranged);
+	
 		return rootView;
 	}
 	
+	@Override
+	public void onStart() {
+		this._presenter.showResult();
+	}
 	/* (non-Javadoc)
 	 * @see com.rocktail.hobbitutils.activities.ITroopsTrainingResultView#setFootUnits(long)
 	 */
@@ -63,5 +70,11 @@ public class TroopsTrainingResultFragment extends Fragment implements ITroopsTra
 	public void setMountedUnits(long amount) {
 		if (this._mountedUnits != null)
 			this._mountedUnits.setAmount(amount);
+	}
+
+	@Override
+	public void setPresenter(ITroopsTrainingResultPresenter presenter) {
+		this._presenter = presenter;
+		
 	}
 }

@@ -4,10 +4,10 @@ import android.test.AndroidTestCase;
 
 import com.rocktail.hobbitutils.activities.IMainActivity;
 import com.rocktail.hobbitutils.activities.ITroopsTrainingView;
-import com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingResourcesPresenter;
 
 /**
- * Class contains unit tests for {@link TroopsTrainingPresenter}
+ * Class contains unit tests for {@link TroopsTrainingResourcesPresenter}
  * @author rocktail
  *
  */
@@ -18,7 +18,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	public void testCanCreateTroopsTrainingController() {
 		//arrange
 		//act
-		TroopsTrainingPresenter sut = new TroopsTrainingPresenter(
+		TroopsTrainingResourcesPresenter sut = new TroopsTrainingResourcesPresenter(
 				getMainActivity(),
 				getTroopsTrainingView());
 		
@@ -41,7 +41,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	 */
 	public void testValidationReturnFalseWhenNegativeFoodIsPassed() {
 		//arrange
-		TroopsTrainingPresenter sut = new TroopsTrainingPresenter(
+		TroopsTrainingResourcesPresenter sut = new TroopsTrainingResourcesPresenter(
 				getMainActivity(),
 				getTroopsTrainingView());
 		
@@ -55,7 +55,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	 */
 	public void testValidationReturnFalseWhenNegativeWoodIsPassed() {
 		//arrange
-		TroopsTrainingPresenter sut = new TroopsTrainingPresenter(
+		TroopsTrainingResourcesPresenter sut = new TroopsTrainingResourcesPresenter(
 				getMainActivity(),
 				getTroopsTrainingView());
 		
@@ -69,7 +69,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	 */
 	public void testValidationReturnFalseWhenNegativeStoneIsPassed() {
 		//arrange
-		TroopsTrainingPresenter sut = new TroopsTrainingPresenter(
+		TroopsTrainingResourcesPresenter sut = new TroopsTrainingResourcesPresenter(
 				getMainActivity(),
 				getTroopsTrainingView());
 		
@@ -83,7 +83,7 @@ public class TroopsTrainingControllerTests extends AndroidTestCase {
 	 */
 	public void testValidationReturnFalseWhenNegativeOreIsPassed() {
 		//arrange
-		TroopsTrainingPresenter sut = new TroopsTrainingPresenter(
+		TroopsTrainingResourcesPresenter sut = new TroopsTrainingResourcesPresenter(
 				getMainActivity(),
 				getTroopsTrainingView());
 		

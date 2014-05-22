@@ -1,10 +1,10 @@
 package com.rocktail.hobbitutils.activities;
 
-import com.rocktail.hobbitutils.controllers.TroopsTrainingPresenter;
+import com.rocktail.hobbitutils.controllers.TroopsTrainingResourcesPresenter;
 
 public interface ITroopsTrainingView {
 
-	public abstract void addPresenter(TroopsTrainingPresenter presenter);
+	public abstract void setPresenter(TroopsTrainingResourcesPresenter presenter);
 
 	/**
 	 * Gets amount of food resource provided by user

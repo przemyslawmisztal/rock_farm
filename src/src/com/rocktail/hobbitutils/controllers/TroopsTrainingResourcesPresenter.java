@@ -9,13 +9,13 @@ import com.rocktail.hobbitutils.utils.AppConfigReader;
 import com.rocktail.hobbitutilst.models.PlayerResources;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
-public class TroopsTrainingPresenter {
+public class TroopsTrainingResourcesPresenter {
 	private IMainActivity _mainActivity;
 	private ITroopsTrainingView _view;
 	
 	private String _VALIDATE_ERROR = "Invalid user input - provided negative resource amount";
 	
-	public TroopsTrainingPresenter(IMainActivity mainActivity, ITroopsTrainingView view) {
+	public TroopsTrainingResourcesPresenter(IMainActivity mainActivity, ITroopsTrainingView view) {
 		this._mainActivity = mainActivity;
 		this._view = view;
 	}
