@@ -5,6 +5,7 @@ import com.rocktail.hobbitutils.controllers.TroopsTrainingResultPresenter;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingResourcesPresenter;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -51,7 +52,7 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 		resultFragment.setPresenter(presenter);
 		
 		fragmentTransaction.replace(R.id.pager, resultFragment);
-		fragmentTransaction.addToBackStack(null);
+		fragmentTransaction.addToBackStack("Resources");
 
 		fragmentTransaction.commit();
 	}
@@ -75,5 +76,16 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
         }
  
         return true;
+    }
+    
+    @Override
+    public void onBackPressed() {
+    	if (this.getFragmentManager().getBackStackEntryCount() > 0) {
+    		this.getFragmentManager().popBackStack();
+    	}
+    	else {
+    		super.onBackPressed();
+    	}
+    		
     }
 }
