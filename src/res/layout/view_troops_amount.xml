@@ -20,6 +20,7 @@
 
     <TextView
         android:id="@+id/tileTitleTextView"
+        android:width="120dp"
         android:layout_column="1"
         android:layout_gravity="left|top"
         android:layout_marginLeft="4dp"
