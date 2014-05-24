@@ -20,7 +20,7 @@
     <string name="title_activity_unit_cost_settings_fragment">UnitCostSettingsFragment</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_troops_calc_result">TroopsCalcResultActivity</string>
-    <string name="number_placeholder">100</string>
+    <string name="number_placeholder">0</string>
     <string name="t1_foot_elves_icon_name">t1elvenfoot</string>
     <string name="t1_ranged_elves_icon_name">t1elvenranged</string>
     <string name="t1_mounted_elves_icon_name">t1elvenmounted</string>
