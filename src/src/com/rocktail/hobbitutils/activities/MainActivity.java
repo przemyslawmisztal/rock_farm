@@ -5,8 +5,8 @@ import com.rocktail.hobbitutils.controllers.TroopsTrainingResultPresenter;
 import com.rocktail.hobbitutils.controllers.TroopsTrainingResourcesPresenter;
 import com.rocktail.hobbitutilst.models.TroopsTrainingCalculationResult;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentManager.OnBackStackChangedListener;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,10 +15,15 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity implements IMainActivity {
+public class MainActivity extends FragmentActivity 
+	implements IMainActivity, OnBackStackChangedListener {
 
     private static final int RESULT_SETTINGS = 0;
-
+    private long _foodResource;
+    private long _woodResource;
+    private long _stoneResource;
+    private long _oreResource;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +39,10 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
         TroopsTrainingResourcesPresenter presenter = new TroopsTrainingResourcesPresenter(this, inputFragment);
         inputFragment.setPresenter(presenter);
         
-        fragmentTransaction.add(R.id.pager, inputFragment);
-        fragmentTransaction.commit();        
+        fragmentTransaction.add(R.id.pager, inputFragment, "Resources");
+        fragmentTransaction.commit(); 
+        
+        fragmentManager.addOnBackStackChangedListener(this);
     }
 
 	/* (non-Javadoc)
@@ -44,6 +51,15 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 	@Override
 	public void createResultFragment(TroopsTrainingCalculationResult res) {
 		FragmentManager fragmentManager = getFragmentManager();
+		
+		TroopsTrainingResourcesFragment currFrag = 
+    			(TroopsTrainingResourcesFragment)fragmentManager.findFragmentByTag("Resources");
+		
+		this._foodResource = currFrag.getFoodResource();
+		this._woodResource = currFrag.getWoodResource();
+		this._stoneResource = currFrag.getStoneResource();
+		this._oreResource = currFrag.getOreResource();
+		
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 		
 		TroopsTrainingResultFragment resultFragment = new TroopsTrainingResultFragment();
@@ -52,7 +68,7 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
 		resultFragment.setPresenter(presenter);
 		
 		fragmentTransaction.replace(R.id.pager, resultFragment);
-		fragmentTransaction.addToBackStack("Resources");
+		fragmentTransaction.addToBackStack(null);
 
 		fragmentTransaction.commit();
 	}
@@ -88,4 +104,21 @@ public class MainActivity extends FragmentActivity implements IMainActivity {
     	}
     		
     }
+
+	@Override
+	public void onBackStackChanged() {
+		FragmentManager manager = getFragmentManager();
+
+        if (manager != null)
+        {
+        	TroopsTrainingResourcesFragment currFrag = 
+        			(TroopsTrainingResourcesFragment)manager.findFragmentByTag("Resources");
+
+            currFrag.setFoodResource(this._foodResource);
+            currFrag.setFoodResource(this._woodResource);
+            currFrag.setFoodResource(this._stoneResource);
+            currFrag.setFoodResource(this._oreResource);
+        } 
+		
+	}
 }

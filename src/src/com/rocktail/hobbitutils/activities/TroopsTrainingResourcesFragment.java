@@ -97,5 +97,37 @@ public class TroopsTrainingResourcesFragment extends Fragment
 	public long getOreResource() {
 		return _oreResource.getAmount();
 	}
+	
+	/**
+	 * Sets amount of food resource
+	 * @param foodAmount
+	 */
+	public void setFoodResource(long foodAmount) {
+		this._foodResource.setAmount(foodAmount);
+	}
+
+	/**
+	 * Sets amount of wood resource
+	 * @param foodAmount
+	 */	
+	public void setWoodResource(long woodAmount) {
+		this._woodResource.setAmount(woodAmount);
+	}
+	
+	/**
+	 * Sets amount of stone resource
+	 * @param foodAmount
+	 */	
+	public void setStoneResource(long stoneAmount) {
+		this._stoneResource.setAmount(stoneAmount);
+	}
+	
+	/**
+	 * Sets amount of ore resource
+	 * @param foodAmount
+	 */	
+	public void setOreResource(long oreAmount) {
+		this._oreResource.setAmount(oreAmount);
+	}
 }
 

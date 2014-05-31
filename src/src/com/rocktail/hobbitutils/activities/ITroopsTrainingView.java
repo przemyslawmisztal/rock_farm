@@ -29,4 +29,28 @@ public interface ITroopsTrainingView {
 	 * @return
 	 */
 	public abstract long getOreResource();
+	
+	/**
+	 * Sets amount of food resource
+	 * @param foodAmount
+	 */
+	public abstract void setFoodResource(long foodAmount);
+
+	/**
+	 * Sets amount of wood resource
+	 * @param foodAmount
+	 */	
+	public abstract void setWoodResource(long woodAmount);
+	
+	/**
+	 * Sets amount of stone resource
+	 * @param foodAmount
+	 */	
+	public abstract void setStoneResource(long stoneAmount);
+	
+	/**
+	 * Sets amount of ore resource
+	 * @param foodAmount
+	 */	
+	public abstract void setOreResource(long oreAmount);
 }
