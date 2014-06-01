@@ -1,7 +1,7 @@
-Hobbit unit calculator
+Hobbit units calculator
 =========
 
-Simple but useful Android application that calculates amount of T1 troops to train while making sure your available resources are spent the best efficient way.
+Simple but useful Android application that calculates amount of T1 troops to train while making sure your available resources are spent the best efficient way. In result you will be able to queue more units.
 
 ## Quick start
 
@@ -12,6 +12,10 @@ Simple but useful Android application that calculates amount of T1 troops to tra
 ## Usage
 
 Enter amount for each of the resources that you have. As in game resource quantities are rather large app takes that units are in thousands. So if you have one million of food just type 1000. When you done just press OK to see how much units you should buy to use the most of your resources.
+
+## How does it work?
+
+Application uses [Simplex algorithm] (http://en.wikipedia.org/wiki/Simplex_algorithm) to determine best way to queue units. The goal is to maximize amount of might produced with limited resources. Balanced spread of unit types is not taken into consideration.
 
 ## Bugs and feature requests
 
