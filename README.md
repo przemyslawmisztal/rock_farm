@@ -1,12 +1,13 @@
-rock_farm
+Hobbit unit calculator
 =========
 
-Simple but useful Android application with utilities for Hobbit Kingdoms game
+Simple but useful Android application that calculates amount of T1 troops to train while making sure your available resources are spent the best efficient way.
 
-####Troop training
+## Quick start
 
-Determine best way to queue T1 troops while making sure that your resources are used in most efficient way.
-
+1. Allow application installs from “unknown sources” (http://developer.android.com/distribute/tools/open-distribution.html#unknown-sources).
+2. Download APK on your PC and copy them to your phone, or download directly from your phone.
+3. Install APK with the file manager.
 
 ####Licensing
 
