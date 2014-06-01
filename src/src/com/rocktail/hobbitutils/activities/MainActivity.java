@@ -55,6 +55,7 @@ public class MainActivity extends FragmentActivity
 		TroopsTrainingResourcesFragment currFrag = 
     			(TroopsTrainingResourcesFragment)fragmentManager.findFragmentByTag("Resources");
 		
+		//saving resources amount to put them back when user returns from result fragment
 		this._foodResource = currFrag.getFoodResource();
 		this._woodResource = currFrag.getWoodResource();
 		this._stoneResource = currFrag.getStoneResource();
@@ -115,9 +116,9 @@ public class MainActivity extends FragmentActivity
         			(TroopsTrainingResourcesFragment)manager.findFragmentByTag("Resources");
 
             currFrag.setFoodResource(this._foodResource);
-            currFrag.setFoodResource(this._woodResource);
-            currFrag.setFoodResource(this._stoneResource);
-            currFrag.setFoodResource(this._oreResource);
+            currFrag.setWoodResource(this._woodResource);
+            currFrag.setStoneResource(this._stoneResource);
+            currFrag.setOreResource(this._oreResource);
         } 
 		
 	}
